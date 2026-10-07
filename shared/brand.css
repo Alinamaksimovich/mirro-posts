@@ -1,0 +1,58 @@
+/* ============================================================
+   MIRRO — общий стиль для всех слайдов
+   Подключается в каждом слайде: <link rel="stylesheet" href="../../shared/brand.css">
+   ============================================================ */
+
+/* Шрифты (Google Fonts, с кириллицей):
+   - Cormorant Garamond — элегантный serif
+   - Unbounded — характерный жирный гротеск для заголовков
+   - Manrope — чистый гротеск для мелкого текста */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;700&family=Unbounded:wght@500;700;900&display=block');
+
+:root {
+  /* Цвета бренда */
+  --lime:     #D8F27F;
+  --lavender: #B9A8F0;
+  --cream:    #FAF8F6;
+  --dark:     #2C2C2A;
+
+  /* Шрифты */
+  --font-serif:   'Cormorant Garamond', Georgia, serif;
+  --font-display: 'Unbounded', 'Arial Black', sans-serif;
+  --font-sans:    'Manrope', Arial, sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  width: 1080px;
+  height: 1350px;
+  overflow: hidden;
+  background: var(--cream);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Сам слайд: ровно 1080×1350 (Instagram 4:5) */
+.slide {
+  position: relative;
+  width: 1080px;
+  height: 1350px;
+  overflow: hidden;
+  padding: 96px;
+  background: var(--cream);
+  color: var(--dark);
+  font-family: var(--font-sans);
+}
+
+/* Фоны */
+.bg-lime     { background: var(--lime); }
+.bg-lavender { background: var(--lavender); }
+.bg-cream    { background: var(--cream); }
+.bg-dark     { background: var(--dark); color: var(--cream); }
+
+/* Типографика */
+.display { font-family: var(--font-display); font-weight: 900; line-height: 0.95; letter-spacing: -0.02em; text-transform: uppercase; }
+.serif   { font-family: var(--font-serif); font-weight: 500; line-height: 1.05; }
+.italic  { font-style: italic; }
+.body    { font-family: var(--font-sans); font-size: 34px; line-height: 1.4; }
+.caption { font-family: var(--font-sans); font-size: 24px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
