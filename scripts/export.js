@@ -74,17 +74,21 @@ function pickCarousels(names) {
 
     console.log(`\n▸ ${name} (${slides.length} слайдов)`);
     for (const file of slides) {
+      // размер по умолчанию 1080×1350; для сторис в разметке: data-size="1080x1920"
+      const m = fs.readFileSync(path.join(dir, file), 'utf8').match(/data-size="(\d+)x(\d+)"/);
+      const w = m ? +m[1] : WIDTH, h = m ? +m[2] : HEIGHT;
+      await page.setViewportSize({ width: w, height: h });
       await page.goto('file://' + path.join(dir, file), { waitUntil: 'networkidle' });
       await page.evaluate(() => document.fonts.ready); // ждём загрузку шрифтов
       const out = path.join(outDir, file.replace(/\.html$/, '.png'));
-      await page.screenshot({ path: out, clip: { x: 0, y: 0, width: WIDTH, height: HEIGHT } });
-      console.log(`  ✓ output/${name}/${path.basename(out)}`);
+      await page.screenshot({ path: out, clip: { x: 0, y: 0, width: w, height: h } });
+      console.log(`  ✓ output/${name}/${path.basename(out)}  (${w}×${h})`);
       total++;
     }
   }
 
   await browser.close();
-  console.log(`\nГотово: ${total} PNG (1080×1350) в папке output/`);
+  console.log(`\nГотово: ${total} PNG в папке output/`);
 })().catch(err => {
   console.error(err);
   process.exit(1);

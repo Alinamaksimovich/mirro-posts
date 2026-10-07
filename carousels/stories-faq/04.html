@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Вопрос 04</title>
+  <link rel="stylesheet" href="../../shared/brand.css">
+  <link rel="stylesheet" href="stories.css">
+  <style>
+    .story { background: var(--cream); }
+    .qmark { color: rgba(185,168,240,.3); }
+    .q .display { font-size: 150px; }
+    .q .serif { font-size: 118px; margin-top: 6px; }
+    .answer { top: 690px; }
+    .phone { left: 72px; top: 960px; width: 450px; transform: rotate(-5deg); }
+    .folders { position: absolute; left: 590px; top: 1030px; display: flex; flex-direction: column; gap: 26px; z-index: 3; }
+    .folder .tab { display: inline-block; height: 44px; padding: 0 22px; line-height: 44px; border-radius: 16px 16px 0 0; font-family: var(--font-mono); font-size: 18px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+    .folder .body { width: 420px; height: 110px; border-radius: 0 22px 22px 22px; display: flex; align-items: center; padding: 0 26px; font-family: var(--font-serif); font-style: italic; font-weight: 500; font-size: 52px; }
+    .f1 .tab, .f1 .body { background: var(--lavender); }
+    .f2 .tab, .f2 .body { background: var(--lime); }
+    .f3 .tab, .f3 .body { background: var(--dark); color: var(--cream); }
+  </style>
+</head>
+<body data-size="1080x1920">
+  <div class="story">
+    <div class="qmark">?</div>
+    <div class="label"><span><i class="dot"></i>MIRRO®</span><span>Вопросы · 04/05</span></div>
+    <div class="q">
+      <div class="display">Можно</div>
+      <div class="serif italic">сохранять образы?</div>
+    </div>
+    <p class="answer">Да! Собирай луки и сохраняй их в папки — под поездку, работу или особый случай. Всё всегда под рукой.</p>
+    <div class="phone"><img src="../03-why-convenient/img/screen-looks.jpg" alt=""></div>
+    <div class="folders">
+      <div class="folder f1"><div class="tab">Папка</div><div class="body">В поездку</div></div>
+      <div class="folder f2"><div class="tab">Папка</div><div class="body">Работа</div></div>
+      <div class="folder f3"><div class="tab">Папка</div><div class="body">Особый случай</div></div>
+    </div>
+  </div>
+</body>
+</html>

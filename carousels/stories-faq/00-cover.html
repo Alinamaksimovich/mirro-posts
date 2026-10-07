@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Обложка «Вопросы»</title>
+  <link rel="stylesheet" href="../../shared/brand.css">
+  <link rel="stylesheet" href="stories.css">
+  <style>
+    /* Обложка для кружка: Instagram берёт центр картинки, всё важное — в круге по центру */
+    .story { background: var(--lime); }
+    .ring { position: absolute; left: 140px; top: 560px; width: 800px; height: 800px; border-radius: 50%; border: 4px solid var(--dark); }
+    .mark { position: absolute; left: 0; right: 0; top: 590px; text-align: center; font-family: var(--font-serif); font-style: italic; font-weight: 500; font-size: 760px; line-height: .9; }
+    .dot2 { position: absolute; left: 540px; top: 560px; width: 36px; height: 36px; margin: -18px 0 0 -18px; border-radius: 50%; background: var(--dark); }
+  </style>
+</head>
+<body data-size="1080x1920">
+  <div class="story">
+    <div class="ring"></div>
+    <div class="dot2"></div>
+    <div class="mark">?</div>
+  </div>
+</body>
+</html>
