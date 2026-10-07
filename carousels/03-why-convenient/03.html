@@ -6,31 +6,39 @@
   <link rel="stylesheet" href="../../shared/brand.css">
   <link rel="stylesheet" href="style.css">
   <style>
-    .h1 .display { font-size: 102px; color: var(--lime); }
-    .h1 .serif { font-size: 104px; margin-top: 6px; }
-    .phone { left: 590px; top: 430px; width: 410px; transform: rotate(4deg); }
-    .phone-frame { left: 548px; top: 404px; width: 500px; height: 800px; }
-    .cats { position: absolute; left: 64px; top: 780px; width: 460px; display: flex; flex-wrap: wrap; gap: 14px; }
-    .cats span { font-family: var(--font-mono); font-size: 22px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 14px 20px; border-radius: 40px; border: 2px solid rgba(250,248,246,.35); }
-    .cats span.on { background: var(--lime); color: var(--dark); border-color: var(--lime); }
-    .note { position: absolute; left: 64px; top: 1060px; width: 460px; font-family: var(--font-serif); font-style: italic; font-size: 52px; line-height: 1; }
+    .order { background: var(--lavender); }
+    .grid { position: absolute; left: 64px; right: 64px; top: 220px; display: grid; grid-template-columns: repeat(5, 1fr); gap: 18px 16px; }
+    .cell { background: var(--cream); border-radius: 18px; height: 170px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+    .cell .g { position: relative; width: 92px; }
+    .cell .cap { margin-top: 4px; font-size: 14px; }
   </style>
 </head>
 <body>
-  <div class="slide bg-dark">
-    <div class="topbar"><span><i class="dot"></i>MIRRO®</span><span>Причина 02</span><span>03/05</span></div>
-    <div class="h1">
-      <div class="display">Забываешь,</div>
-      <div class="serif italic">что у тебя есть?</div>
+  <div class="slide">
+    <div class="half chaos">
+      <div class="pile" data-n="16" data-seed="21" data-size="210" data-fade="1" data-tones="#4a4a47,#5e5e5a,#74746f,#8b8b86,#a3a39e" style="left:300px; top:-80px; width:960px; height:800px;"></div>
+      <div class="lbl" style="left:64px; top:70px; color: var(--lime);">Проблема 02</div>
+      <div class="head" style="left:64px; top:120px; width:520px; text-shadow: 0 2px 30px #2C2C2A;">Забываешь, что у тебя есть?</div>
     </div>
-    <p class="sub" style="top: 450px; width: 460px;">Весь гардероб перед глазами — ничего не теряется</p>
-    <span class="chip lime" style="left: 64px; top: 620px;">✓ Решение</span>
-
-    <div class="cats"><span class="on">Все</span><span>Верх</span><span>Низ</span><span>Платья</span><span>♥ Избранное</span><span>⌕ Поиск</span></div>
-    <p class="note">всё разложено <span style="color: var(--lime)">по полочкам</span></p>
-
-    <div class="phone"><img src="../01-how-it-works/img/screen-wardrobe.jpg" alt=""></div>
-    <div class="frame phone-frame"><i></i></div>
+    <div class="seam-num">02</div><div class="seam-num low">02</div>
+    <div class="half order">
+      <div class="lbl" style="left:64px; top:70px;">Решение</div>
+      <div class="body" style="left:64px; top:112px; width:620px;">Весь гардероб перед глазами — ничего не теряется</div>
+      <div class="grid">
+        <div class="cell"><i class="g" data-g="tee" data-c="#FAF8F6"></i><div class="cap">Верх</div></div>
+        <div class="cell"><i class="g" data-g="sweater" data-c="#D8F27F"></i><div class="cap">Верх</div></div>
+        <div class="cell"><i class="g" data-g="trousers" data-c="#2C2C2A"></i><div class="cap">Низ</div></div>
+        <div class="cell"><i class="g" data-g="skirt" data-c="#B9A8F0"></i><div class="cap">Низ</div></div>
+        <div class="cell"><i class="g" data-g="dress" data-c="#7a2230"></i><div class="cap">Платья</div></div>
+        <div class="cell"><i class="g" data-g="jacket" data-c="#2C2C2A"></i><div class="cap">Верхняя</div></div>
+        <div class="cell"><i class="g" data-g="coat" data-c="#d9cbb5"></i><div class="cap">Верхняя</div></div>
+        <div class="cell"><i class="g" data-g="top" data-c="#FAF8F6"></i><div class="cap">Верх</div></div>
+        <div class="cell"><i class="g" data-g="shoe" data-c="#2C2C2A"></i><div class="cap">Обувь</div></div>
+        <div class="cell"><i class="g" data-g="bag" data-c="#D8F27F"></i><div class="cap">Сумки</div></div>
+      </div>
+    </div>
+    <div class="foot" style="color: var(--dark);"><span>MIRRO®</span><span>03 — 05</span></div>
   </div>
+<script src="garments.js"></script>
 </body>
 </html>

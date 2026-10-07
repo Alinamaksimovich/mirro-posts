@@ -6,30 +6,36 @@
   <link rel="stylesheet" href="../../shared/brand.css">
   <link rel="stylesheet" href="style.css">
   <style>
-    .logo { position: absolute; left: 56px; top: 118px; font-family: var(--font-display); font-weight: 900; font-size: 236px; line-height: .9; letter-spacing: -0.04em; }
-    .tagline { position: absolute; left: 64px; top: 360px; width: 540px; font-family: var(--font-serif); font-style: italic; font-weight: 500; font-size: 76px; line-height: 1; }
-    .steps { position: absolute; left: 64px; top: 640px; width: 480px; list-style: none; }
-    .steps li { display: flex; align-items: baseline; gap: 20px; padding: 18px 0; border-top: 2px solid var(--dark); font-size: 29px; font-weight: 700; }
-    .steps li:last-child { border-bottom: 2px solid var(--dark); }
-    .steps li span { font-family: var(--font-mono); font-size: 20px; font-weight: 700; }
-    .cta { position: absolute; left: 64px; top: 1040px; width: 500px; padding: 30px 32px; border-radius: 24px; background: var(--dark); color: var(--cream); }
-    .cta .bot { font-family: var(--font-mono); font-size: 28px; font-weight: 700; color: var(--lime); }
-    .cta p { margin-top: 12px; font-size: 28px; font-weight: 700; }
-    .phone { left: 606px; top: 420px; width: 420px; transform: rotate(4deg); }
+    .s5 { background: var(--lime); }
+    .capsule { position: absolute; left: 64px; right: 64px; top: 90px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .capsule .cell { height: 190px; border-radius: 18px; background: var(--cream); display: flex; align-items: center; justify-content: center; }
+    .capsule .g { position: relative; width: 110px; }
+    .brand { position: absolute; left: 56px; top: 540px; font-family: var(--font-display); font-weight: 900; font-size: 210px; line-height: .9; letter-spacing: -0.04em; }
+    .tl { position: absolute; left: 64px; top: 760px; font-family: var(--font-display); font-weight: 500; font-size: 46px; line-height: 1.1; width: 900px; }
+    .list { position: absolute; left: 64px; top: 900px; font-family: var(--font-mono); font-size: 22px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; line-height: 2; }
+    .cta { position: absolute; left: 64px; right: 64px; top: 1110px; height: 110px; border-radius: 60px; background: var(--dark); color: var(--cream); display: flex; align-items: center; justify-content: space-between; padding: 0 44px; }
+    .cta b { font-family: var(--font-mono); font-size: 28px; color: var(--lime); }
+    .cta span { font-size: 26px; font-weight: 600; }
   </style>
 </head>
 <body>
-  <div class="slide bg-lime">
-    <div class="topbar"><span><i class="dot"></i>MIRRO®</span><span>Попробуй</span><span>05/05</span></div>
-    <div class="logo">MIRRO</div>
-    <p class="tagline">твой гардероб думает за тебя</p>
-    <ul class="steps">
-      <li><span>01</span>Всегда знаешь, что надеть</li>
-      <li><span>02</span>Все вещи перед глазами</li>
-      <li><span>03</span>Без лишних покупок</li>
-    </ul>
-    <div class="cta"><div class="bot">@Mirro_wardrobe_bot</div><p>ссылка в шапке профиля ↗</p></div>
-    <div class="phone"><img src="img/screen-looks.jpg" alt=""></div>
+  <div class="slide s5">
+    <div class="capsule">
+      <div class="cell"><i class="g" data-g="coat" data-c="#d9cbb5"></i></div>
+      <div class="cell"><i class="g" data-g="tee" data-c="#FAF8F6"></i></div>
+      <div class="cell"><i class="g" data-g="dress" data-c="#B9A8F0"></i></div>
+      <div class="cell"><i class="g" data-g="trousers" data-c="#2C2C2A"></i></div>
+      <div class="cell"><i class="g" data-g="jacket" data-c="#7a2230"></i></div>
+      <div class="cell"><i class="g" data-g="skirt" data-c="#2C2C2A"></i></div>
+      <div class="cell"><i class="g" data-g="shoe" data-c="#2C2C2A"></i></div>
+      <div class="cell"><i class="g" data-g="bag" data-c="#B9A8F0"></i></div>
+    </div>
+    <div class="brand">MIRRO</div>
+    <div class="tl">твой гардероб думает за тебя</div>
+    <div class="list">01 — всегда знаешь, что надеть<br>02 — все вещи перед глазами<br>03 — без лишних покупок</div>
+    <div class="cta"><b>@Mirro_wardrobe_bot</b><span>ссылка в шапке профиля ↗</span></div>
+    <div class="foot" style="color: var(--dark);"><span>MIRRO®</span><span>05 — 05</span></div>
   </div>
+<script src="garments.js"></script>
 </body>
 </html>

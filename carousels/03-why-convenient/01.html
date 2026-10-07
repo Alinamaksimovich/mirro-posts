@@ -6,29 +6,24 @@
   <link rel="stylesheet" href="../../shared/brand.css">
   <link rel="stylesheet" href="style.css">
   <style>
-    .h1 .display { font-size: 176px; }
-    .h1 .serif { font-size: 104px; line-height: .98; margin-top: 8px; }
-    .tiles { position: absolute; left: 64px; right: 64px; top: 640px; display: flex; gap: 24px; }
-    .tile { flex: 1; height: 500px; border-radius: 28px; padding: 30px; display: flex; flex-direction: column; justify-content: space-between; }
-    .tile .n { font-family: var(--font-display); font-weight: 900; font-size: 120px; line-height: .8; }
-    .tile .t { font-family: var(--font-mono); font-size: 21px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; line-height: 1.35; }
-    .tile .x { align-self: flex-start; font-family: var(--font-mono); font-size: 17px; font-weight: 700; letter-spacing: .08em; padding: 7px 12px; border-radius: 8px; background: var(--dark); color: var(--cream); }
-    .tile.d .x { background: var(--lime); color: var(--dark); }
+    .chaos { height: 820px; }
+    .order { top: 820px; background: var(--cream); }
+    .pulled { left: 600px; top: 520px; width: 330px; --r: 12deg; z-index: 5; filter: drop-shadow(0 30px 40px rgba(0,0,0,.35)); }
   </style>
 </head>
 <body>
-  <div class="slide bg-cream">
-    <div class="topbar"><span><i class="dot"></i>MIRRO®</span><span>Почему удобно</span><span>01/05</span></div>
-    <div class="h1">
-      <div class="display">Зачем</div>
-      <div class="serif italic">тебе цифровой<br>гардероб</div>
+  <div class="slide">
+    <div class="half chaos">
+      <div class="pile" data-n="26" data-seed="11" data-size="230" data-tones="#4a4a47,#5e5e5a,#74746f,#8b8b86,#a3a39e" data-stroke="#2C2C2A" style="left:-40px; top:-30px; width:1160px; height:880px;"></div>
     </div>
-    <div class="tiles">
-      <div class="tile bg-lime"><span class="x">✕ БОЛЬ</span><div><div class="n">01</div><div class="t" style="margin-top:22px">Нечего<br>надеть</div></div></div>
-      <div class="tile bg-lavender"><span class="x">✕ БОЛЬ</span><div><div class="n">02</div><div class="t" style="margin-top:22px">Забываю,<br>что есть</div></div></div>
-      <div class="tile bg-dark d"><span class="x">✕ БОЛЬ</span><div><div class="n">03</div><div class="t" style="margin-top:22px">Покупаю<br>лишнее</div></div></div>
+    <i class="g pulled" data-g="dress" data-c="#D8F27F"></i>
+    <div class="half order">
+      <div class="lbl" style="left:64px; top:60px;">Почему удобно</div>
+      <div class="head" style="left:64px; top:110px; width:560px; font-size:66px;">Зачем тебе цифровой гардероб?</div>
+      <div class="body" style="left:64px; bottom:110px; font-size:26px; opacity:.7;">3 причины попробовать →</div>
     </div>
-    <div class="plate"><p>3 причины попробовать</p><span class="arrow">ЛИСТАЙ →</span></div>
+    <div class="foot" style="color: var(--dark);"><span>MIRRO®</span><span>01 — 05</span></div>
   </div>
+<script src="garments.js"></script>
 </body>
 </html>

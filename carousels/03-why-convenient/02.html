@@ -6,34 +6,30 @@
   <link rel="stylesheet" href="../../shared/brand.css">
   <link rel="stylesheet" href="style.css">
   <style>
-    .h1 .display { font-size: 86px; white-space: nowrap; }
-    .h1 .serif { font-size: 112px; margin-top: 6px; }
-    .photo { left: 64px; top: 450px; width: 520px; height: 800px; }
-    .photo-frame { left: 40px; top: 426px; width: 568px; height: 848px; }
-    .right { position: absolute; left: 640px; top: 460px; width: 376px; }
-    .right p { font-size: 30px; font-weight: 600; line-height: 1.35; margin-top: 70px; }
-    .look { left: 680px; top: 760px; width: 300px; height: 490px; }
-    .look img { object-position: 50% 0; }
+    .order { background: var(--lime); }
+    .outfits { position: absolute; left: 64px; top: 250px; display: flex; gap: 40px; }
+    .outfit { width: 180px; padding: 22px 10px 18px; background: var(--cream); border-radius: 22px; }
   </style>
 </head>
 <body>
-  <div class="slide bg-lavender">
-    <div class="topbar"><span><i class="dot"></i>MIRRO®</span><span>Причина 01</span><span>02/05</span></div>
-    <div class="h1">
-      <div class="display">Шкаф полный</div>
-      <div class="serif italic">— надеть нечего</div>
+  <div class="slide">
+    <div class="half chaos">
+      <div class="pile" data-n="22" data-seed="5" data-size="200" data-tones="#4a4a47,#5e5e5a,#74746f,#8b8b86,#a3a39e" style="left:380px; top:20px; width:760px; height:640px;"></div>
+      <div class="lbl" style="left:64px; top:70px; color: var(--lime);">Проблема 01</div>
+      <div class="head" style="left:64px; top:120px; width:470px; text-shadow: 0 2px 30px #2C2C2A;">Шкаф полный — надеть нечего</div>
     </div>
-    <div class="card photo"><img src="../02-try-before-buy/img/closet.jpg" alt=""></div>
-    <div class="frame photo-frame dark"><i></i></div>
-    <span class="chip" style="left: 88px; top: 474px;">✕ Боль</span>
-
-    <div class="right">
-      <span class="chip lime" style="position: static;">✓ Решение</span>
-      <p>Собирай образы заранее и всегда знай, что носить</p>
+    <div class="seam-num">01</div><div class="seam-num low">01</div>
+    <div class="half order">
+      <div class="lbl" style="left:64px; top:70px;">Решение</div>
+      <div class="body" style="left:64px; top:112px; width:600px;">Собирай образы заранее и всегда знай, что носить</div>
+      <div class="outfits">
+        <div class="outfit"><i class="g" data-g="top" data-c="#2C2C2A" style="width:110px"></i><i class="g" data-g="trousers" data-c="#FAF8F6" style="width:110px; margin-top:-14px"></i><div class="cap">Офис</div></div>
+        <div class="outfit"><i class="g" data-g="dress" data-c="#B9A8F0" style="width:140px"></i><i class="g" data-g="shoe" data-c="#2C2C2A" style="width:70px; margin-top:-30px"></i><div class="cap">Вечер</div></div>
+        <div class="outfit"><i class="g" data-g="jacket" data-c="#7a2230" style="width:130px"></i><i class="g" data-g="skirt" data-c="#2C2C2A" style="width:100px; margin-top:-20px"></i><div class="cap">Выходные</div></div>
+      </div>
     </div>
-    <div class="ai" style="left: 556px; top: 900px;">→</div>
-    <div class="card look"><img src="../01-how-it-works/img/look-office.jpg" alt=""></div>
-    <span class="chip lime" style="left: 700px; top: 1196px;">Образ на завтра</span>
+    <div class="foot" style="color: var(--dark);"><span>MIRRO®</span><span>02 — 05</span></div>
   </div>
+<script src="garments.js"></script>
 </body>
 </html>
