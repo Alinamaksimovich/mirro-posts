@@ -7,17 +7,19 @@
   <link rel="stylesheet" href="style.css">
   <style>
     .order { background: var(--cream); }
-    .same { position: absolute; left: 64px; top: 330px; display: flex; gap: 30px; }
-    .same .g { position: relative; width: 150px; }
-    .row { position: absolute; left: 64px; top: 240px; display: flex; align-items: center; gap: 34px; }
-    .row .g { position: relative; }
-    .x { position: absolute; inset: -6px; }
-    .x::before, .x::after { content: ""; position: absolute; left: 50%; top: 50%; width: 150%; height: 8px; background: var(--dark); border-radius: 4px; }
+    .same { position: absolute; left: 560px; top: 80px; display: flex; align-items: flex-end; gap: 10px; }
+    .same img { height: 250px; filter: grayscale(1) brightness(.85); }
+    .same img:nth-child(1) { transform: rotate(-6deg); } .same img:nth-child(3) { transform: rotate(5deg); }
+    .row { position: absolute; left: 64px; right: 64px; top: 230px; display: flex; gap: 24px; }
+    .pick { position: relative; flex: 1; height: 380px; border-radius: 22px; background: #fff; display: flex; align-items: center; justify-content: center; }
+    .pick img { height: 250px; max-width: 240px; object-fit: contain; margin-top: -30px; }
+    .pick.no { background: var(--lime); }
+    .pick span { position: absolute; left: 14px; right: 14px; bottom: 14px; text-align: center; font-family: var(--font-mono); font-size: 15px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 8px 6px; border-radius: 8px; }
+    .ok { background: var(--cream); color: var(--dark); border: 2px solid var(--dark); }
+    .nope { background: var(--dark); color: var(--cream); }
+    .x { position: absolute; left: 40px; right: 40px; top: 50px; bottom: 90px; }
+    .x::before, .x::after { content: ""; position: absolute; left: 50%; top: 50%; width: 120%; height: 8px; background: var(--dark); border-radius: 4px; }
     .x::before { transform: translate(-50%,-50%) rotate(45deg); } .x::after { transform: translate(-50%,-50%) rotate(-45deg); }
-    .slot { position: relative; width: 110px; opacity: .35; }
-    .keep { position: relative; width: 150px; padding: 14px; background: var(--lime); border-radius: 20px; }
-    .arrow { font-family: var(--font-display); font-weight: 900; font-size: 60px; }
-    .outfit { width: 220px; padding: 20px 10px 16px; background: var(--lime); border-radius: 22px; }
   </style>
 </head>
 <body>
@@ -26,22 +28,20 @@
       <div class="lbl" style="left:64px; top:70px; color: var(--lime);">Проблема 03</div>
       <div class="head" style="left:64px; top:120px; width:420px;">Покупаешь похожее?</div>
       <div class="same">
-        <i class="g" data-g="top" data-c="#5e5e5a" style="--r:-6deg"></i>
-        <i class="g" data-g="top" data-c="#5e5e5a" style="--r:3deg"></i>
-        <i class="g" data-g="top" data-c="#5e5e5a" style="--r:-2deg"></i>
+        <img src="img/item-top-green.png" alt="">
+        <img src="img/item-top-orange.png" alt="">
+        <img src="img/item-top-lilac.png" alt="">
       </div>
-      <div class="lbl" style="left:64px; top:290px; color: rgba(250,248,246,.6);">Чёрный топ × 3</div>
+      <div class="lbl" style="left:64px; top:290px; color: rgba(250,248,246,.6);">Топ · топ · ещё один топ</div>
     </div>
     <div class="seam-num">03</div><div class="seam-num low">03</div>
     <div class="half order">
       <div class="lbl" style="left:64px; top:70px;">Решение</div>
       <div class="body" style="left:64px; top:112px; width:600px;">Примеряй до покупки — бери только то, что реально носишь</div>
       <div class="row">
-        <div class="slot"><i class="g" data-g="top" data-c="#2C2C2A" style="position:relative"></i><div class="x"></div></div>
-        <div class="slot"><i class="g" data-g="top" data-c="#2C2C2A" style="position:relative"></i><div class="x"></div></div>
-        <div class="keep"><i class="g" data-g="top" data-c="#2C2C2A" style="position:relative"></i></div>
-        <span class="arrow">→</span>
-        <div class="outfit"><i class="g" data-g="top" data-c="#2C2C2A" style="width:110px"></i><i class="g" data-g="skirt" data-c="#B9A8F0" style="width:130px; margin-top:-26px"></i><div class="cap">Примерено ✓</div></div>
+        <div class="pick"><img src="img/item-top-green.png" alt=""><span class="ok">✓ Уже в гардеробе</span></div>
+        <div class="pick"><img src="img/item-top-orange.png" alt=""><span class="ok">✓ Уже в гардеробе</span></div>
+        <div class="pick no"><img src="img/item-top-lilac.png" alt=""><div class="x"></div><span class="nope">✕ Похожий есть — не берём</span></div>
       </div>
     </div>
     <div class="foot" style="color: var(--dark);"><span>MIRRO®</span><span>04 — 05</span></div>

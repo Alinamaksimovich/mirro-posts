@@ -8,8 +8,8 @@
   <style>
     .s5 { background: var(--lime); }
     .capsule { position: absolute; left: 64px; right: 64px; top: 90px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-    .capsule .cell { height: 190px; border-radius: 18px; background: var(--cream); display: flex; align-items: center; justify-content: center; }
-    .capsule .g { position: relative; width: 110px; }
+    .capsule .cell { height: 200px; display: flex; align-items: center; justify-content: center; }
+    .capsule img { max-height: 190px; max-width: 220px; object-fit: contain; filter: drop-shadow(0 16px 20px rgba(44,44,42,.25)); }
     .brand { position: absolute; left: 56px; top: 540px; font-family: var(--font-display); font-weight: 900; font-size: 210px; line-height: .9; letter-spacing: -0.04em; }
     .tl { position: absolute; left: 64px; top: 760px; font-family: var(--font-display); font-weight: 500; font-size: 46px; line-height: 1.1; width: 900px; }
     .list { position: absolute; left: 64px; top: 900px; font-family: var(--font-mono); font-size: 22px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; line-height: 2; }
@@ -21,14 +21,14 @@
 <body>
   <div class="slide s5">
     <div class="capsule">
-      <div class="cell"><i class="g" data-g="coat" data-c="#d9cbb5"></i></div>
-      <div class="cell"><i class="g" data-g="tee" data-c="#FAF8F6"></i></div>
-      <div class="cell"><i class="g" data-g="dress" data-c="#B9A8F0"></i></div>
-      <div class="cell"><i class="g" data-g="trousers" data-c="#2C2C2A"></i></div>
-      <div class="cell"><i class="g" data-g="jacket" data-c="#7a2230"></i></div>
-      <div class="cell"><i class="g" data-g="skirt" data-c="#2C2C2A"></i></div>
-      <div class="cell"><i class="g" data-g="shoe" data-c="#2C2C2A"></i></div>
-      <div class="cell"><i class="g" data-g="bag" data-c="#B9A8F0"></i></div>
+      <div class="cell"><img src="img/item-coat-yellow.png" alt=""></div>
+      <div class="cell"><img src="img/item-dress-print.png" alt=""></div>
+      <div class="cell"><img src="img/item-bag-pink.png" alt=""></div>
+      <div class="cell"><img src="img/item-boots.png" alt=""></div>
+      <div class="cell"><img src="img/item-top-green.png" alt=""></div>
+      <div class="cell"><img src="img/item-blouse-print.png" alt=""></div>
+      <div class="cell"><img src="img/item-flats-red.png" alt=""></div>
+      <div class="cell"><img src="img/item-tee-white.png" alt=""></div>
     </div>
     <div class="brand">MIRRO</div>
     <div class="tl">твой гардероб думает за тебя</div>

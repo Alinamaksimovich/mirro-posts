@@ -9,32 +9,42 @@
     .order { background: var(--lavender); }
     .grid { position: absolute; left: 64px; right: 64px; top: 220px; display: grid; grid-template-columns: repeat(5, 1fr); gap: 18px 16px; }
     .cell { background: var(--cream); border-radius: 18px; height: 170px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
-    .cell .g { position: relative; width: 92px; }
+    .cell img { height: 112px; max-width: 150px; object-fit: contain; display: block; }
+    .sc { position: absolute; filter: grayscale(1) brightness(.85); }
     .cell .cap { margin-top: 4px; font-size: 14px; }
   </style>
 </head>
 <body>
   <div class="slide">
     <div class="half chaos">
-      <div class="pile" data-n="16" data-seed="21" data-size="210" data-fade="1" data-tones="#4a4a47,#5e5e5a,#74746f,#8b8b86,#a3a39e" style="left:300px; top:-80px; width:960px; height:800px;"></div>
+      <img class="sc" src="img/item-coat-yellow.png" style="left:520px; top:-60px; width:330px; transform:rotate(-14deg); opacity:0.55;" alt="">
+      <img class="sc" src="img/item-tee-white.png" style="left:880px; top:-50px; width:300px; transform:rotate(8deg); opacity:0.35;" alt="">
+      <img class="sc" src="img/item-dress-print.png" style="left:800px; top:140px; width:220px; transform:rotate(18deg); opacity:0.4;" alt="">
+      <img class="sc" src="img/item-top-orange.png" style="left:640px; top:260px; width:190px; transform:rotate(-40deg); opacity:0.45;" alt="">
+      <img class="sc" src="img/item-boots.png" style="left:420px; top:330px; width:250px; transform:rotate(24deg); opacity:0.6;" alt="">
+      <img class="sc" src="img/item-bag-pink.png" style="left:760px; top:400px; width:300px; transform:rotate(-10deg); opacity:0.5;" alt="">
+      <img class="sc" src="img/item-blouse-print.png" style="left:230px; top:430px; width:260px; transform:rotate(-30deg); opacity:0.3;" alt="">
+      <img class="sc" src="img/item-flats-red.png" style="left:-60px; top:470px; width:220px; transform:rotate(40deg); opacity:0.35;" alt="">
+      <img class="sc" src="img/item-top-green.png" style="left:980px; top:330px; width:200px; transform:rotate(-20deg); opacity:0.3;" alt="">
+      <div style="position:absolute; inset:0; background:linear-gradient(90deg, rgba(44,44,42,.85) 0%, rgba(44,44,42,.2) 55%, rgba(44,44,42,0) 100%);"></div>
       <div class="lbl" style="left:64px; top:70px; color: var(--lime);">Проблема 02</div>
-      <div class="head" style="left:64px; top:120px; width:520px; text-shadow: 0 2px 30px #2C2C2A;">Забываешь, что у тебя есть?</div>
+      <div class="head" style="left:64px; top:120px; width:520px; ">Забываешь, что у тебя есть?</div>
     </div>
     <div class="seam-num">02</div><div class="seam-num low">02</div>
     <div class="half order">
       <div class="lbl" style="left:64px; top:70px;">Решение</div>
       <div class="body" style="left:64px; top:112px; width:620px;">Весь гардероб перед глазами — ничего не теряется</div>
       <div class="grid">
-        <div class="cell"><i class="g" data-g="tee" data-c="#FAF8F6"></i><div class="cap">Верх</div></div>
-        <div class="cell"><i class="g" data-g="sweater" data-c="#D8F27F"></i><div class="cap">Верх</div></div>
-        <div class="cell"><i class="g" data-g="trousers" data-c="#2C2C2A"></i><div class="cap">Низ</div></div>
-        <div class="cell"><i class="g" data-g="skirt" data-c="#B9A8F0"></i><div class="cap">Низ</div></div>
-        <div class="cell"><i class="g" data-g="dress" data-c="#7a2230"></i><div class="cap">Платья</div></div>
-        <div class="cell"><i class="g" data-g="jacket" data-c="#2C2C2A"></i><div class="cap">Верхняя</div></div>
-        <div class="cell"><i class="g" data-g="coat" data-c="#d9cbb5"></i><div class="cap">Верхняя</div></div>
-        <div class="cell"><i class="g" data-g="top" data-c="#FAF8F6"></i><div class="cap">Верх</div></div>
-        <div class="cell"><i class="g" data-g="shoe" data-c="#2C2C2A"></i><div class="cap">Обувь</div></div>
-        <div class="cell"><i class="g" data-g="bag" data-c="#D8F27F"></i><div class="cap">Сумки</div></div>
+        <div class="cell"><img src="img/item-bag-pink.png" alt=""><div class="cap">Сумки</div></div>
+        <div class="cell"><img src="img/item-top-green.png" alt=""><div class="cap">Верх</div></div>
+        <div class="cell"><img src="img/item-coat-yellow.png" alt=""><div class="cap">Верхняя</div></div>
+        <div class="cell"><img src="img/item-top-orange.png" alt=""><div class="cap">Верх</div></div>
+        <div class="cell"><img src="img/item-boots.png" alt=""><div class="cap">Обувь</div></div>
+        <div class="cell"><img src="img/item-top-lilac.png" alt=""><div class="cap">Верх</div></div>
+        <div class="cell"><img src="img/item-dress-print.png" alt=""><div class="cap">Платья</div></div>
+        <div class="cell"><img src="img/item-tee-white.png" alt=""><div class="cap">Верх</div></div>
+        <div class="cell"><img src="img/item-flats-red.png" alt=""><div class="cap">Обувь</div></div>
+        <div class="cell"><img src="img/item-blouse-print.png" alt=""><div class="cap">Верх</div></div>
       </div>
     </div>
     <div class="foot" style="color: var(--dark);"><span>MIRRO®</span><span>03 — 05</span></div>

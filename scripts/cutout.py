@@ -1,8 +1,10 @@
-"""Вырезает вещь со светлого однотонного фона: python3 scripts/cutout.py вход.jpg выход.png"""
+"""Вырезает вещь со светлого однотонного фона:
+   python3 scripts/cutout.py вход.jpg выход.png [допуск=26] [убирать_замкнутый_фон=1]
+Для белых вещей на белом фоне ставьте маленький допуск (4–8)."""
 import sys, collections
 from PIL import Image, ImageFilter
 
-def cutout(src, dst, tol=26):
+def cutout(src, dst, tol=26, holes=True):
     im = Image.open(src).convert('RGB'); W, H = im.size; px = im.load()
     corners = [px[2, 2], px[W - 3, 2], px[2, H - 3], px[W - 3, H - 3]]
     bg = tuple(sorted(c[i] for c in corners)[1] for i in range(3))
@@ -17,7 +19,7 @@ def cutout(src, dst, tol=26):
         m[x, y] = 0
         q.extend(((x + 1, y), (x - 1, y), (x, y + 1), (x, y - 1)))
     # замкнутые участки фона (например, внутри ручки сумки) — тоже убираем, если они крупные
-    for y0 in range(0, H, 3):
+    for y0 in (range(0, H, 3) if holes else []):
         for x0 in range(0, W, 3):
             if seen[y0 * W + x0] or not is_bg(px[x0, y0]): continue
             comp = []; q = collections.deque([(x0, y0)])
@@ -33,4 +35,4 @@ def cutout(src, dst, tol=26):
     im.putalpha(mask); im.crop(mask.getbbox()).save(dst)
 
 if __name__ == '__main__':
-    cutout(sys.argv[1], sys.argv[2])
+    cutout(sys.argv[1], sys.argv[2], int(sys.argv[3]) if len(sys.argv) > 3 else 26, (sys.argv[4] != '0') if len(sys.argv) > 4 else True)
