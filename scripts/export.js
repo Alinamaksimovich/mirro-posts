@@ -46,10 +46,31 @@ function pickCarousels(names) {
   let total = 0;
   for (const name of carousels) {
     const dir = path.join(CAROUSELS, name);
-    const slides = fs.readdirSync(dir).filter(f => f.endsWith('.html')).sort();
     const outDir = path.join(OUTPUT, name);
     fs.rmSync(outDir, { recursive: true, force: true });
     fs.mkdirSync(outDir, { recursive: true });
+
+    // Панорама: один файл panorama.html шириной N×1080 режется на N слайдов
+    const pano = path.join(dir, 'panorama.html');
+    if (fs.existsSync(pano)) {
+      const count = Number((fs.readFileSync(pano, 'utf8').match(/data-slides="(\d+)"/) || [])[1] || 5);
+      const panoPage = await browser.newPage({ viewport: { width: WIDTH * count, height: HEIGHT }, deviceScaleFactor: 1 });
+      await panoPage.goto('file://' + pano, { waitUntil: 'networkidle' });
+      await panoPage.evaluate(() => document.fonts.ready);
+      await panoPage.waitForTimeout(500); // даём дорисоваться маркерным линиям
+      console.log(`\n▸ ${name} (панорама, ${count} слайдов)`);
+      for (let i = 0; i < count; i++) {
+        const out = path.join(outDir, String(i + 1).padStart(2, '0') + '.png');
+        await panoPage.screenshot({ path: out, clip: { x: i * WIDTH, y: 0, width: WIDTH, height: HEIGHT } });
+        console.log(`  ✓ output/${name}/${path.basename(out)}`);
+        total++;
+      }
+      await panoPage.screenshot({ path: path.join(outDir, 'panorama-preview.png') });
+      await panoPage.close();
+      continue;
+    }
+
+    const slides = fs.readdirSync(dir).filter(f => f.endsWith('.html')).sort();
 
     console.log(`\n▸ ${name} (${slides.length} слайдов)`);
     for (const file of slides) {

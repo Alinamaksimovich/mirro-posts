@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Примерь перед шопингом — панорама</title>
+  <!-- Шаблон B «Журнальная панорама»: 5 слайдов = одно полотно 5400×1350, экспорт режет его на 5 PNG -->
+  <link rel="stylesheet" href="../../shared/brand.css">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&display=block" rel="stylesheet">
+  <style>
+    html, body { width: 5400px; height: 1350px; }
+    .pano { position: relative; width: 5400px; height: 1350px; overflow: hidden; }
+    .s { position: absolute; top: 0; width: 1080px; height: 1350px; overflow: hidden; }
+    .s1 { left: 0; } .s2 { left: 1080px; } .s3 { left: 2160px; } .s4 { left: 3240px; } .s5 { left: 4320px; }
+
+    .full { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .it { font-family: var(--font-serif); font-style: italic; font-weight: 500; line-height: .86; letter-spacing: -0.01em; }
+    .hand { font-family: 'Caveat', cursive; font-weight: 700; color: var(--lime); }
+    .txt { font-family: var(--font-sans); font-size: 32px; font-weight: 500; line-height: 1.35; }
+
+    /* бренд-метка и вертикальная подпись с номером */
+    .mark { position: absolute; top: 58px; left: 64px; font-family: var(--font-display); font-weight: 900; font-size: 26px; letter-spacing: .02em; z-index: 5; }
+    .side { position: absolute; top: 64px; right: 40px; z-index: 5; writing-mode: vertical-rl; font-family: var(--font-mono); font-size: 19px; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; }
+    .light { color: var(--cream); } .darkc { color: var(--dark); }
+
+    /* маркер поверх всей панорамы */
+    svg.marker { position: absolute; inset: 0; width: 5400px; height: 1350px; z-index: 4; pointer-events: none; overflow: visible; }
+    svg.marker path { fill: none; stroke-linecap: round; stroke-linejoin: round; }
+
+    /* S1 — шкаф */
+    .s1 .shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(30,28,26,.78) 0%, rgba(30,28,26,.35) 48%, rgba(30,28,26,0) 62%, rgba(30,28,26,.55) 86%, rgba(30,28,26,.8) 100%); }
+    .s1 h1 { position: absolute; left: 64px; top: 130px; font-size: 214px; color: var(--cream); }
+    .s1 .sub { position: absolute; left: 64px; bottom: 96px; color: var(--cream); }
+
+    /* S2 — куртка в магазине */
+    .s2 .shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(30,28,26,.35) 0%, rgba(30,28,26,0) 30%, rgba(30,28,26,0) 62%, rgba(30,28,26,.85) 86%); }
+    .s2 h2 { position: absolute; left: 64px; bottom: 170px; font-size: 128px; color: var(--cream); }
+    .s2 .sub { position: absolute; left: 64px; bottom: 96px; color: var(--cream); }
+
+    /* S3 — примерка на аватаре */
+    .s3 { background: linear-gradient(180deg, #F4F5F9 0 72.6%, #CBCBCE 72.6%, #C4C4C7 100%); }
+    .s3 .avatar { position: absolute; left: 318px; top: 0; height: 1350px; -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 180px); mask-image: linear-gradient(90deg, transparent 0, #000 180px); }
+    .s3 h2 { position: absolute; left: 64px; top: 140px; font-size: 132px; color: var(--dark); }
+    .s3 .sub { position: absolute; left: 64px; top: 470px; width: 400px; color: var(--dark); }
+    .s3 .polaroid { position: absolute; left: 70px; top: 820px; width: 300px; padding: 18px 18px 64px; background: #fff; transform: rotate(-6deg); box-shadow: 0 24px 50px rgba(44,44,42,.22); }
+    .s3 .polaroid img { width: 100%; display: block; }
+    .s3 .polaroid span { position: absolute; left: 0; right: 0; bottom: 12px; text-align: center; font-family: 'Caveat', cursive; font-weight: 700; font-size: 36px; color: var(--dark); }
+    .tape { position: absolute; width: 120px; height: 34px; background: rgba(216,242,127,.85); top: -16px; left: 90px; transform: rotate(4deg); }
+
+    /* S4 — контактный лист */
+    .s4 { background: var(--dark); color: var(--cream); }
+    .s4 h2 { position: absolute; left: 64px; top: 130px; font-size: 150px; }
+    .s4 .sub { position: absolute; left: 64px; top: 420px; width: 820px; }
+    .sheet { position: absolute; left: 66px; top: 560px; display: flex; gap: 24px; }
+    .frame-ph { position: relative; width: 300px; height: 590px; background: #F4F5F9; overflow: hidden; }
+    .frame-ph img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; display: block; }
+    .frame-ph.no img, .frame-ph.no .ph { opacity: .55; }
+    .frame-ph .ph { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; text-align: center; font-family: var(--font-mono); font-size: 18px; color: #888; padding: 20px; }
+    .edge { position: absolute; left: 66px; top: 1196px; width: 948px; display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 17px; letter-spacing: .12em; color: rgba(250,248,246,.55); }
+    .s4 .bottom { position: absolute; left: 64px; bottom: 70px; font-size: 64px; }
+
+    /* S5 — финал */
+    .s5 { background: var(--lime); color: var(--dark); }
+    .s5 .masthead { position: absolute; left: 50px; top: 96px; font-family: var(--font-display); font-weight: 900; font-size: 222px; line-height: .9; letter-spacing: -0.04em; }
+    .s5 .jacket { position: absolute; left: 400px; top: 250px; width: 560px; filter: drop-shadow(0 40px 50px rgba(44,44,42,.35)); }
+    .s5 .slogan { position: absolute; left: 64px; top: 1040px; font-size: 84px; }
+    .s5 .cta { position: absolute; left: 64px; bottom: 74px; display: flex; align-items: baseline; gap: 26px; }
+    .s5 .cta b { font-family: var(--font-mono); font-size: 30px; font-weight: 700; }
+    .s5 .cta span { font-family: 'Caveat', cursive; font-weight: 700; font-size: 44px; }
+  </style>
+</head>
+<body>
+<div class="pano" data-slides="5">
+
+  <!-- 01 -->
+  <section class="s s1">
+    <img class="full" src="img/closet.jpg" alt="">
+    <div class="shade"></div>
+    <div class="mark light">MIRRO®</div>
+    <div class="side light">Перед покупкой — 01/05</div>
+    <h1 class="it">Хватит<br>покупать<br><span id="zrya">зря</span></h1>
+    <p class="txt sub">примеряй до того, как купишь</p>
+    <div class="hand" id="swipe" style="position:absolute; right:110px; bottom:150px; font-size:58px;">листай</div>
+  </section>
+
+  <!-- 02 -->
+  <section class="s s2">
+    <img class="full" src="img/jacket-store.jpg" alt="">
+    <div class="shade"></div>
+    <div class="mark light">MIRRO®</div>
+    <div class="side light">Шаг 01 · Нашла вещь — 02/05</div>
+    <div class="hand" id="want" style="position:absolute; left:96px; top:250px; font-size:96px; transform: rotate(-8deg);">хочу!</div>
+    <h2 class="it">Увидела вещь<br>в магазине?</h2>
+    <p class="txt sub">Сфоткай её или сохрани фото</p>
+  </section>
+
+  <!-- 03 -->
+  <section class="s s3">
+    <img class="avatar" src="img/look-jacket.jpg" alt="">
+    <div class="mark darkc">MIRRO®</div>
+    <div class="side darkc">Шаг 02 · Примерка — 03/05</div>
+    <h2 class="it">Примерь<br><span id="onavatar">на аватаре</span></h2>
+    <p class="txt sub">Увидишь, как сядет именно на тебе — без примерочной</p>
+    <div class="polaroid" id="pola"><div class="tape"></div><img src="img/jacket-cutout.png" alt=""><span>та самая куртка</span></div>
+  </section>
+
+  <!-- 04 -->
+  <section class="s s4">
+    <div class="mark light">MIRRO®</div>
+    <div class="side light">Шаг 03 · Проверка — 04/05</div>
+    <h2 class="it">Впишется<br>в гардероб?</h2>
+    <p class="txt sub">Собери образ с вещами, которые уже есть — и реши осознанно</p>
+    <div class="sheet">
+      <div class="frame-ph" id="f1"><img src="img/look-jacket.jpg" alt=""></div>
+      <div class="frame-ph" id="f2"><img src="img/look-vest.jpg" alt=""></div>
+      <div class="frame-ph no" id="f3"><div class="ph">[ фото образа<br>с фиолетовыми<br>колготками ]</div></div>
+    </div>
+    <div class="edge"><span>▸ 01A</span><span>▸ 02A</span><span>▸ 03A</span></div>
+    <div class="hand" style="position:absolute; left:96px; top:470px; font-size:0;"></div>
+    <p class="it bottom">и только потом — <span style="color: var(--lime)">на кассу</span></p>
+  </section>
+
+  <!-- 05 -->
+  <section class="s s5">
+    <div class="side darkc">Попробуй — 05/05</div>
+    <div class="masthead">MIRRO</div>
+    <img class="jacket" src="img/jacket-cutout.png" alt="">
+    <p class="it slogan" id="realwear">покупай только то,<br>что реально носишь</p>
+    <div class="cta"><b>@Mirro_wardrobe_bot</b><span id="link">ссылка в шапке профиля</span></div>
+  </section>
+
+  <svg class="marker" id="marker"></svg>
+</div>
+
+<script>
+  // Маркерные штрихи «от руки»: обводки, подчёркивания, галочки, крестики и линия через всю панораму.
+  const NS = 'http://www.w3.org/2000/svg';
+  const svg = document.getElementById('marker');
+  let seed = 7;
+  const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+  const box = id => { const r = document.getElementById(id).getBoundingClientRect(); return { x: r.left, y: r.top, w: r.width, h: r.height }; };
+  function stroke(d, color = 'var(--lime)', width = 12, opacity = 1) {
+    const p = document.createElementNS(NS, 'path');
+    p.setAttribute('d', d); p.setAttribute('stroke', color); p.setAttribute('stroke-width', width); p.setAttribute('opacity', opacity);
+    p.style.stroke = color; svg.appendChild(p);
+  }
+  // сглаженная линия через точки (Catmull-Rom → Bezier)
+  function smooth(pts) {
+    let d = `M${pts[0][0]},${pts[0][1]}`;
+    for (let i = 0; i < pts.length - 1; i++) {
+      const p0 = pts[i - 1] || pts[i], p1 = pts[i], p2 = pts[i + 1], p3 = pts[i + 2] || p2;
+      d += ` C${p1[0] + (p2[0] - p0[0]) / 6},${p1[1] + (p2[1] - p0[1]) / 6} ${p2[0] - (p3[0] - p1[0]) / 6},${p2[1] - (p3[1] - p1[1]) / 6} ${p2[0]},${p2[1]}`;
+    }
+    return d;
+  }
+  function circle(b, pad = 30, color, width) {
+    const cx = b.x + b.w / 2, cy = b.y + b.h / 2, rx = b.w / 2 + pad, ry = b.h / 2 + pad * 0.8;
+    const pts = [], a0 = -2.4 + rnd() * .3;
+    for (let t = 0; t <= 1.12; t += 0.02) {
+      const a = a0 + t * Math.PI * 2, k = 1 + 0.05 * Math.sin(a * 3 + 1) + t * 0.06;
+      pts.push([cx + rx * k * Math.cos(a), cy + ry * k * Math.sin(a)]);
+    }
+    stroke(smooth(pts), color, width);
+  }
+  function underline(b, color, width, dy = 10) {
+    const y = b.y + b.h + dy;
+    stroke(smooth([[b.x - 10, y + 6], [b.x + b.w * .35, y - 4], [b.x + b.w * .7, y + 3], [b.x + b.w + 16, y - 8]]), color, width);
+  }
+  function check(cx, cy, s, color, width) { stroke(smooth([[cx - s * .55, cy - s * .05], [cx - s * .15, cy + s * .4], [cx + s * .6, cy - s * .55]]), color, width); }
+  function cross(b, color, width) {
+    stroke(smooth([[b.x + 20, b.y + 30], [b.x + b.w * .5, b.y + b.h * .52], [b.x + b.w - 16, b.y + b.h - 26]]), color, width);
+    stroke(smooth([[b.x + b.w - 24, b.y + 40], [b.x + b.w * .48, b.y + b.h * .5], [b.x + 26, b.y + b.h - 40]]), color, width);
+  }
+  function arrowHead(x, y, ang, color, width) {
+    const l = 38;
+    stroke(`M${x + l * Math.cos(ang + 2.6)},${y + l * Math.sin(ang + 2.6)} L${x},${y} L${x + l * Math.cos(ang - 2.6)},${y + l * Math.sin(ang - 2.6)}`, color, width);
+  }
+
+  function draw() {
+    const L = 'var(--lime)', D = 'var(--dark)';
+    // 01: обвести «зря», от «листай» линия уходит на следующий слайд
+    circle(box('zrya'), 26, L, 13);
+    const sw = box('swipe');
+    // 01 → 02: линия через стык слайдов к обводке куртки
+    stroke(smooth([[sw.x + sw.w + 10, sw.y + sw.h * .6], [1020, 1160], [1100, 1120], [1150, 1040]]), L, 12);
+    // 02: обвести куртку на вешалке
+    circle({ x: 1080 + 300, y: 260, w: 560, h: 690 }, 20, L, 13);
+    const w = box('want'); arrowHead(1380, 330, -0.5, L, 12);
+    stroke(smooth([[w.x + w.w + 4, w.y + w.h * .55], [w.x + w.w + 60, w.y + w.h * .3], [1378, 332]]), L, 12);
+    // 02 → 03: линия уходит со слайда 2 к полароиду на слайде 3
+    stroke(smooth([[1080 + 870, 900], [2120, 760], [2200, 800], [2250, 860]]), L, 12);
+    // 03: выделить «на аватаре», стрелка от полароида к аватару
+    underline(box('onavatar'), L, 16, 4);
+    const p = box('pola');
+    stroke(smooth([[p.x + p.w + 10, p.y + 160], [p.x + p.w + 120, p.y + 70], [2160 + 590, 760]]), D, 7);
+    arrowHead(2160 + 590, 760, -0.6, D, 7);
+    // 03 → 04: линия на тёмный слайд
+    stroke(smooth([[2160 + 880, 1300], [3200, 1290], [3290, 1300], [3330, 1270]]), D, 7);
+    // 04: обвести удачные кадры, перечеркнуть неудачный
+    const f1 = box('f1'), f2 = box('f2'), f3 = box('f3');
+    cross(f3, L, 14);
+    check(f1.x + f1.w - 60, f1.y + 60, 100, L, 15);
+    check(f2.x + f2.w - 60, f2.y + 60, 100, L, 15);
+    underline({ x: f1.x + 10, y: f1.y, w: f1.w - 20, h: f1.h }, L, 12, 14);
+    underline({ x: f2.x + 10, y: f2.y, w: f2.w - 20, h: f2.h }, L, 12, 14);
+    // 04 → 05: линия выходит на лаймовый финал
+    stroke(smooth([[3240 + 820, 1300], [4280, 1310], [4330, 1300]]), L, 12);
+    stroke(smooth([[4330, 1300], [4400, 1270]]), D, 8);
+    // 05: подчеркнуть «реально носишь» и ссылку
+    underline(box('link'), D, 7, 2);
+  }
+  document.fonts.ready.then(draw);
+</script>
+</body>
+</html>
