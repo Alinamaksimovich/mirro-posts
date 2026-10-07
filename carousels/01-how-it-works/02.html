@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Как работает MIRRO — 02</title>
+  <link rel="stylesheet" href="../../shared/brand.css">
+  <style>
+    .h1 { position: absolute; left: 64px; top: 128px; }
+    .h1 .row { display: flex; align-items: baseline; gap: 26px; }
+    .h1 .display { font-size: 116px; }
+    .h1 .serif { font-size: 120px; }
+    .sub { position: absolute; left: 64px; top: 400px; font-size: 32px; font-weight: 500; }
+
+
+    .selfie { left: 64px; top: 590px; width: 420px; height: 560px; transform: rotate(-3deg); box-shadow: 0 30px 60px rgba(44,44,42,.18); }
+    .avatar { left: 620px; top: 420px; width: 396px; height: 830px; }
+    .avatar-frame { left: 596px; top: 396px; width: 444px; height: 878px; }
+    .avatar-frame::before, .avatar-frame::after, .avatar-frame i::before, .avatar-frame i::after { border-color: var(--dark); }
+
+    .chip { position: absolute; font-family: var(--font-mono); font-size: 18px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 8px 14px; border-radius: 8px; background: var(--dark); color: var(--cream); z-index: 3; }
+    .chip.lime { background: var(--lime); color: var(--dark); }
+
+    .ai { position: absolute; left: 470px; top: 800px; width: 120px; height: 120px; border-radius: 50%; background: var(--lime); color: var(--dark); display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 4; box-shadow: 0 0 0 10px rgba(216,242,127,.35); }
+    .ai b { font-family: var(--font-display); font-weight: 900; font-size: 30px; line-height: 1; }
+    .ai span { font-size: 34px; line-height: 1; font-weight: 700; }
+  </style>
+</head>
+<body>
+  <div class="slide bg-lavender">
+    <div class="topbar"><span><i class="dot"></i>MIRRO®</span><span>Шаг 02 · Аватар</span><span>02/05</span></div>
+
+    <div class="h1">
+      <div class="row"><span class="display">Твой</span><span class="serif italic">цифровой</span></div>
+      <div class="display">двойник</div>
+    </div>
+    <p class="sub">создаётся из одного селфи</p>
+
+    <div class="card selfie"><img src="img/selfie.jpg" alt=""></div>
+    <div class="chip" style="left: 92px; top: 1172px; transform: rotate(-3deg);">Селфи</div>
+
+    <div class="ai"><b>AI</b><span>→</span></div>
+
+    <div class="card avatar"><img src="img/avatar.jpg" alt=""></div>
+    <div class="frame avatar-frame"><i></i></div>
+    <div class="chip lime" style="left: 644px; top: 1190px;">Аватар в полный рост</div>
+  </div>
+</body>
+</html>

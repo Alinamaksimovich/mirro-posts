@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Как работает MIRRO — 03</title>
+  <link rel="stylesheet" href="../../shared/brand.css">
+  <style>
+    .h1 { position: absolute; left: 64px; top: 128px; }
+    .h1 .display { font-size: 136px; color: var(--lime); }
+    .h1 .serif { font-size: 132px; margin-top: 4px; }
+
+
+    .hero { left: 600px; top: 410px; width: 416px; height: 884px; }
+    .hero-frame { left: 576px; top: 386px; width: 464px; height: 932px; }
+
+    .formula { position: absolute; left: 64px; top: 520px; display: flex; align-items: center; gap: 18px; }
+    .formula .t { position: relative; width: 150px; border-radius: 18px; overflow: hidden; background: #F7F7F7; }
+    .formula .t img { width: 100%; display: block; }
+    .formula .op { font-family: var(--font-display); font-weight: 900; font-size: 48px; color: var(--lime); }
+    .cap { position: absolute; font-family: var(--font-mono); font-size: 17px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--cream); opacity: .7; }
+
+    .sub { position: absolute; left: 64px; top: 1110px; width: 480px; font-size: 34px; line-height: 1.35; font-weight: 500; }
+    .sub em { font-family: var(--font-serif); font-size: 44px; color: var(--lime); }
+
+    .chip { position: absolute; font-family: var(--font-mono); font-size: 18px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 8px 14px; border-radius: 8px; background: var(--lime); color: var(--dark); }
+  </style>
+</head>
+<body>
+  <div class="slide bg-dark">
+    <div class="topbar"><span><i class="dot"></i>MIRRO®</span><span>Шаг 03 · Примерка</span><span>03/05</span></div>
+
+    <div class="h1">
+      <div class="display">Примерь</div>
+      <div class="serif italic">на себе</div>
+    </div>
+
+    <div class="formula">
+      <div class="t"><img src="img/avatar.jpg" alt=""></div>
+      <span class="op">+</span>
+      <div class="t" style="background:#fff"><img src="img/item-red-dress.jpg" alt=""></div>
+      <span class="op">=</span>
+    </div>
+    <div class="cap" style="left: 64px; top: 860px;">Аватар</div>
+    <div class="cap" style="left: 280px; top: 860px;">Вещь</div>
+
+    <p class="sub">Собирай образы из своих вещей — <em>без примерочной</em> и очередей</p>
+
+    <div class="card hero"><img src="img/look-red-dress.jpg" alt=""></div>
+    <div class="frame hero-frame"><i></i></div>
+    <div class="chip" style="left: 624px; top: 1234px;">Образ: Red Dress</div>
+  </div>
+</body>
+</html>

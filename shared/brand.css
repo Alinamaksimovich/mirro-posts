@@ -6,8 +6,9 @@
 /* Шрифты (Google Fonts, с кириллицей):
    - Cormorant Garamond — элегантный serif
    - Unbounded — характерный жирный гротеск для заголовков
-   - Manrope — чистый гротеск для мелкого текста */
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;700&family=Unbounded:wght@500;700;900&display=block');
+   - Manrope — чистый гротеск для мелкого текста
+   - JetBrains Mono — технические подписи (нумерация, метки) */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;700&family=Unbounded:wght@500;700;900&family=JetBrains+Mono:wght@400;500;700&display=block');
 
 :root {
   /* Цвета бренда */
@@ -20,6 +21,7 @@
   --font-serif:   'Cormorant Garamond', Georgia, serif;
   --font-display: 'Unbounded', 'Arial Black', sans-serif;
   --font-sans:    'Manrope', Arial, sans-serif;
+  --font-mono:    'JetBrains Mono', 'Courier New', monospace;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -56,3 +58,49 @@ html, body {
 .italic  { font-style: italic; }
 .body    { font-family: var(--font-sans); font-size: 34px; line-height: 1.4; }
 .caption { font-family: var(--font-sans); font-size: 24px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
+.mono    { font-family: var(--font-mono); font-size: 22px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; }
+
+/* ---------- Компоненты ---------- */
+
+/* Шапка слайда: MIRRO® · рубрика · 01/05 */
+.topbar {
+  position: absolute; top: 56px; left: 64px; right: 64px; z-index: 10;
+  display: flex; justify-content: space-between; align-items: center;
+  font-family: var(--font-mono); font-size: 20px; font-weight: 500;
+  letter-spacing: 0.08em; text-transform: uppercase;
+}
+.topbar .dot { display: inline-block; width: 12px; height: 12px; border-radius: 50%; background: var(--lime); margin-right: 10px; vertical-align: 1px; }
+.bg-lime .topbar .dot { background: var(--dark); }
+
+/* Огромная цифра шага, обрезанная краем */
+.big-num {
+  position: absolute; font-family: var(--font-display); font-weight: 900;
+  font-size: 620px; line-height: 0.8; letter-spacing: -0.05em; pointer-events: none;
+}
+.big-num.outline { color: transparent; -webkit-text-stroke: 3px currentColor; }
+
+/* Карточка с фото */
+.card { position: absolute; overflow: hidden; border-radius: 28px; background: #F7F7F7; }
+.card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* Уголки «кадра сканирования» */
+.frame { position: absolute; pointer-events: none; }
+.frame::before, .frame::after, .frame i::before, .frame i::after {
+  content: ""; position: absolute; width: 56px; height: 56px; border: 6px solid var(--lime);
+}
+.frame::before    { top: 0; left: 0;  border-right: 0; border-bottom: 0; }
+.frame::after     { top: 0; right: 0; border-left: 0;  border-bottom: 0; }
+.frame i::before  { bottom: 0; left: 0;  border-right: 0; border-top: 0; }
+.frame i::after   { bottom: 0; right: 0; border-left: 0;  border-top: 0; }
+
+/* Метка-выноска: точка + линия + подпись */
+.tag {
+  position: absolute; display: flex; align-items: center; gap: 0;
+  font-family: var(--font-mono); font-size: 19px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+}
+.tag .pin  { width: 18px; height: 18px; border-radius: 50%; background: var(--lime); box-shadow: 0 0 0 5px rgba(216,242,127,.35); flex: none; }
+.tag .line { height: 2px; background: var(--dark); flex: none; }
+.tag .label { background: var(--dark); color: var(--cream); padding: 9px 14px; border-radius: 8px; white-space: nowrap; }
+
+/* Плашка шага */
+.step-label { font-family: var(--font-mono); font-size: 22px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
