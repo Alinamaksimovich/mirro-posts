@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Примерь перед шопингом — 04</title>
+  <link rel="stylesheet" href="../../shared/brand.css">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .h1 .display { font-size: 112px; }
+    .h1 .serif { font-size: 108px; margin-top: 2px; }
+    .looks { position: absolute; left: 64px; right: 64px; top: 560px; display: flex; gap: 30px; }
+    .look { position: relative; width: 297px; height: 600px; border-radius: 24px; overflow: hidden; background: #F7F7F7; }
+    .look img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 0; display: block; }
+    .look.yes { outline: 6px solid var(--lime); outline-offset: -6px; }
+    .look.no img { filter: grayscale(1); opacity: .45; }
+    .look.no::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top right, transparent calc(50% - 2px), var(--dark) calc(50% - 2px), var(--dark) calc(50% + 2px), transparent calc(50% + 2px)); }
+    .look .chip { left: 18px; bottom: 18px; }
+    .note { position: absolute; left: 64px; top: 1214px; font-family: var(--font-serif); font-style: italic; font-size: 54px; }
+    .legend { position: absolute; right: 64px; top: 1232px; display: flex; gap: 12px; }
+    .legend .chip { position: static; }
+  </style>
+</head>
+<body>
+  <div class="slide bg-cream">
+    <div class="topbar"><span><i class="dot"></i>MIRRO®</span><span>Шаг 03 · Проверка</span><span>04/05</span></div>
+
+    <div class="h1">
+      <div class="display">Впишется</div>
+      <div class="serif italic">в гардероб?</div>
+    </div>
+    <p class="sub" style="top: 404px; width: 860px;">Собери образ с вещами, которые уже есть — и реши осознанно</p>
+
+    <div class="looks">
+      <div class="look yes"><img src="../01-how-it-works/img/look-red-dress.jpg" alt=""><span class="chip lime">✓ Подходит</span></div>
+      <div class="look yes"><img src="../01-how-it-works/img/look-office.jpg" alt=""><span class="chip lime">✓ Подходит</span></div>
+      <div class="look no"><img src="../01-how-it-works/img/look-black-dress.jpg" alt=""><span class="chip">✕ Нет</span></div>
+    </div>
+
+    <p class="note">и только потом — на кассу</p>
+  </div>
+</body>
+</html>

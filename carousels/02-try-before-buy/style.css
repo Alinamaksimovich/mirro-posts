@@ -1,0 +1,10 @@
+/* Общие элементы карусели «Примерь перед шопингом» (поверх shared/brand.css) */
+.h1 { position: absolute; left: 64px; top: 128px; }
+.h1 .row { display: flex; align-items: baseline; gap: 26px; }
+.sub { position: absolute; left: 64px; font-size: 32px; font-weight: 500; line-height: 1.35; }
+.chip { position: absolute; z-index: 5; display: inline-flex; align-items: center; gap: 10px; font-family: var(--font-mono); font-size: 19px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 9px 16px; border-radius: 8px; background: var(--dark); color: var(--cream); white-space: nowrap; }
+.chip.lime { background: var(--lime); color: var(--dark); }
+.frame.dark::before, .frame.dark::after, .frame.dark i::before, .frame.dark i::after { border-color: var(--dark); }
+.phone { position: absolute; padding: 12px; border-radius: 52px; background: var(--dark); box-shadow: 0 40px 80px rgba(0,0,0,.3); }
+.phone img { display: block; width: 100%; border-radius: 40px; }
+.plate { position: absolute; display: flex; align-items: center; gap: 14px; padding: 0 30px; height: 84px; border-radius: 20px; background: var(--lime); color: var(--dark); font-family: var(--font-mono); font-size: 24px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
