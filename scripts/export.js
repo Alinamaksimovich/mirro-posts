@@ -47,8 +47,9 @@ function pickCarousels(names) {
   for (const name of carousels) {
     const dir = path.join(CAROUSELS, name);
     const outDir = path.join(OUTPUT, name);
-    fs.rmSync(outDir, { recursive: true, force: true });
+    // удаляем только старые PNG — видео (MP4), собранные отдельно, остаются
     fs.mkdirSync(outDir, { recursive: true });
+    for (const f of fs.readdirSync(outDir)) if (f.endsWith('.png')) fs.rmSync(path.join(outDir, f));
 
     // Панорама: один файл panorama.html шириной N×1080 режется на N слайдов
     const pano = path.join(dir, 'panorama.html');
