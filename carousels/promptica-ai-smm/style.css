@@ -1,0 +1,37 @@
+/* promptica — карусель «AI SMM-система». Только цвета бренда: #0D0D0D, #FFFFFF, #930400, #fff7e6 */
+@import url('https://fonts.googleapis.com/css2?family=Pangolin&display=block');
+@font-face { font-family: 'Vela Sans'; src: url('../../assets/fonts/VelaSans-ExtraLight.ttf'); font-weight: 200; }
+@font-face { font-family: 'Vela Sans'; src: url('../../assets/fonts/VelaSans-Light.ttf'); font-weight: 300; }
+@font-face { font-family: 'Vela Sans'; src: url('../../assets/fonts/VelaSans-Regular.ttf'); font-weight: 400; }
+@font-face { font-family: 'Vela Sans'; src: url('../../assets/fonts/VelaSans-Medium.ttf'); font-weight: 500; }
+@font-face { font-family: 'Old Soviet'; src: url('../../assets/fonts/Old-Soviet.otf'); }
+
+:root { --black: #0D0D0D; --white: #FFFFFF; --red: #930400; --cream: #fff7e6; --m: 86px; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { width: 1080px; height: 1350px; overflow: hidden; }
+.slide { position: relative; width: 1080px; height: 1350px; overflow: hidden; font-family: 'Vela Sans', sans-serif; font-weight: 300; color: var(--black); }
+.bg-cream { background: var(--cream); } .bg-white { background: var(--white); }
+.bg-red { background: var(--red); color: var(--cream); } .bg-black { background: var(--black); color: var(--cream); }
+
+/* колонтитул */
+.head { position: absolute; top: var(--m); left: var(--m); right: var(--m); display: flex; justify-content: space-between; align-items: flex-start; z-index: 5; }
+.head img { height: 34px; display: block; }
+.head .meta { text-align: right; font-size: 19px; line-height: 1.3; font-weight: 400; }
+
+/* шрифты */
+.type { font-family: 'Old Soviet', serif; font-weight: 400; letter-spacing: -0.01em; }
+.hand { font-family: 'Pangolin', cursive; }
+.small { font-size: 26px; line-height: 1.45; }
+.body { font-size: 34px; line-height: 1.42; }
+
+/* выделение как в редакторе — одно на слайд */
+.hl { background: rgba(147,4,0,.16); box-shadow: -3px 0 0 0 var(--red), 3px 0 0 0 var(--red); -webkit-box-decoration-break: clone; box-decoration-break: clone; padding: 0 3px; }
+.bg-black .hl, .bg-red .hl { background: rgba(255,247,230,.18); box-shadow: -3px 0 0 0 var(--cream), 3px 0 0 0 var(--cream); }
+
+/* стикер-вырезка: белый контур 4px + мягкая тень */
+.sticker { position: absolute; z-index: 3; filter: drop-shadow(4px 0 0 #fff) drop-shadow(-4px 0 0 #fff) drop-shadow(0 4px 0 #fff) drop-shadow(0 -4px 0 #fff) drop-shadow(0 14px 16px rgba(0,0,0,.3)); }
+/* заглушка, пока нет PNG в assets/ */
+.sticker.ph { filter: none; border: 3px dashed currentColor; opacity: .45; border-radius: 18px; display: flex; align-items: center; justify-content: center; text-align: center; font-size: 19px; font-weight: 400; letter-spacing: .06em; text-transform: uppercase; }
+
+/* плёночное зерно поверх слайда */
+.grain { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; mix-blend-mode: multiply; opacity: .18; z-index: 10; }
