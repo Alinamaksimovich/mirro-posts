@@ -5,7 +5,7 @@
   <title>Слишком AI — 02</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    .title { position: absolute; left: var(--m); top: 400px; font-size: 76px; }
+    .title { position: absolute; left: var(--m); top: 345px; font-size: 68px; }
 
     .gloss { background: linear-gradient(172deg, #0D0D0D 0%, #0D0D0D 30%, #6a6660 40%, #e9e1d2 45%, #6a6660 50%, #0D0D0D 58%, #0D0D0D 72%, #6a6660 80%, #d8cfbf 84%, #0D0D0D 92%); -webkit-background-clip: text; background-clip: text; color: transparent; }
   </style>
@@ -16,9 +16,11 @@
     <div class="num">01</div>
 
     <div class="h title gloss">Пластиковые<br>материалы</div>
-    <div class="blocks">
-      <div class="blk"><div class="lbl">Ошибка</div><p class="txt">кожа и ткань блестят как глянцевый пластик.</p></div>
-      <div class="blk"><div class="lbl">Направление</div><p class="txt">следите за фактурой. Живая поверхность матовая и неидеальная.</p></div>
+    <div class="pair">
+      <div class="col bad"><div class="ph"><span class="badge">✕ не ок</span><div class="x"></div><div class="hint">фото: глянцевая кожа<br>и ткань</div><img src="img/02-bad.jpg" alt="" onerror="this.remove()"></div>
+        <div class="cap"><div class="lbl">Ошибка</div><p class="txt">кожа и ткань блестят как глянцевый пластик.</p></div></div>
+      <div class="col good"><div class="ph"><span class="badge">✓ ок</span><div class="x"></div><div class="hint">фото: матовая живая<br>фактура</div><img src="img/02-good.jpg" alt="" onerror="this.remove()"></div>
+        <div class="cap"><div class="lbl">Направление</div><p class="txt">следите за фактурой. Живая поверхность матовая и неидеальная.</p></div></div>
     </div>
     <div class="note">матовое &gt; глянцевое</div>
     <svg class="grain"><filter id="g"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="3" seed="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100%" height="100%" filter="url(#g)"/></svg>

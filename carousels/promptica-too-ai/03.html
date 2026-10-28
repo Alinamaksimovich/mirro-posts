@@ -5,7 +5,7 @@
   <title>Слишком AI — 03</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    .title { position: absolute; left: var(--m); top: 400px; font-size: 76px; }
+    .title { position: absolute; left: var(--m); top: 345px; font-size: 68px; }
 
     .soft { filter: blur(7px); opacity: .75; }
     .focus { position: absolute; left: var(--m); top: 590px; width: 18px; height: 18px; border: 2px solid var(--red); border-radius: 50%; }
@@ -16,9 +16,11 @@
     <div class="head"><img src="../../assets/logo_black.png" alt="promptica"><div class="meta">Слишком AI<br>03 / 06</div></div>
     <div class="num">02</div>
     <div class="h title"><span class="soft">Одинаковая</span><br>резкость</div>
-    <div class="blocks">
-      <div class="blk"><div class="lbl">Ошибка</div><p class="txt">всё в кадре одинаково чёткое.</p></div>
-      <div class="blk"><div class="lbl">Направление</div><p class="txt">у настоящей камеры есть фокус. Решите, что в кадре главное.</p></div>
+    <div class="pair">
+      <div class="col bad"><div class="ph"><span class="badge">✕ не ок</span><div class="x"></div><div class="hint">фото: всё одинаково<br>резкое</div><img src="img/03-bad.jpg" alt="" onerror="this.remove()"></div>
+        <div class="cap"><div class="lbl">Ошибка</div><p class="txt">всё в кадре одинаково чёткое.</p></div></div>
+      <div class="col good"><div class="ph"><span class="badge">✓ ок</span><div class="x"></div><div class="hint">фото: фокус на главном,<br>фон мягкий</div><img src="img/03-good.jpg" alt="" onerror="this.remove()"></div>
+        <div class="cap"><div class="lbl">Направление</div><p class="txt">у настоящей камеры есть фокус. Решите, что в кадре главное.</p></div></div>
     </div>
     <div class="note">одна точка фокуса</div>
     <svg class="grain"><filter id="g"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="3" seed="3" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100%" height="100%" filter="url(#g)"/></svg>
