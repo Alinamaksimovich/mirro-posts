@@ -1,0 +1,31 @@
+/* promptica — «Почему это „слишком AI“». Кремовый фон, чёрный текст, красный акцент. */
+@font-face { font-family: 'HN Black Ext'; src: url('../../assets/fonts/HelveticaNeue-BlackExtObl.otf'); }
+@font-face { font-family: 'Helios Ext'; src: url('../../assets/fonts/HeliosExtC.ttf'); }
+@font-face { font-family: 'Playfair'; src: url('../../assets/fonts/PlayfairDisplay-Italic.ttf'); font-style: italic; font-weight: 400 900; }
+
+:root { --black: #0D0D0D; --red: #930400; --cream: #fff7e6; --white: #FFFFFF; --m: 86px; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { width: 1080px; height: 1350px; overflow: hidden; }
+.slide { position: relative; width: 1080px; height: 1350px; overflow: hidden; background: var(--cream); color: var(--black); font-family: 'Helios Ext', sans-serif; }
+
+/* колонтитул */
+.head { position: absolute; top: var(--m); left: var(--m); right: var(--m); display: flex; justify-content: space-between; align-items: flex-start; z-index: 5; }
+.head img { height: 34px; display: block; }
+.head .meta { text-align: right; font-size: 19px; line-height: 1.3; }
+
+/* заголовки — Helvetica Neue Black Extended Oblique, капс */
+.h { font-family: 'HN Black Ext', sans-serif; text-transform: uppercase; line-height: .98; letter-spacing: -0.01em; }
+.num { position: absolute; left: var(--m); top: 190px; font-family: 'HN Black Ext', sans-serif; font-size: 150px; line-height: 1; color: var(--red); }
+
+/* блоки «Ошибка / Направление» */
+.blocks { position: absolute; left: var(--m); width: 760px; top: 780px; }
+.blk { padding: 26px 0; border-top: 1px solid rgba(13,13,13,.22); }
+.blk:last-child { border-bottom: 1px solid rgba(13,13,13,.22); }
+.lbl { font-size: 18px; letter-spacing: .14em; text-transform: uppercase; color: var(--red); margin-bottom: 12px; }
+.txt { font-size: 31px; line-height: 1.38; }
+
+/* заметка на полях — Playfair Italic, вертикально по правому краю */
+.note { position: absolute; right: 52px; bottom: var(--m); writing-mode: vertical-rl; transform: rotate(180deg); font-family: 'Playfair', serif; font-style: italic; font-size: 30px; color: var(--red); white-space: nowrap; z-index: 5; }
+
+/* плёночное зерно */
+.grain { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; mix-blend-mode: multiply; opacity: .18; z-index: 10; }

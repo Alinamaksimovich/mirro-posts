@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Слишком AI — 03</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .title { position: absolute; left: var(--m); top: 400px; font-size: 76px; }
+
+    .soft { filter: blur(7px); opacity: .75; }
+    .focus { position: absolute; left: var(--m); top: 590px; width: 18px; height: 18px; border: 2px solid var(--red); border-radius: 50%; }
+  </style>
+</head>
+<body>
+  <div class="slide">
+    <div class="head"><img src="../../assets/logo_black.png" alt="promptica"><div class="meta">Слишком AI<br>03 / 06</div></div>
+    <div class="num">02</div>
+    <div class="h title"><span class="soft">Одинаковая</span><br>резкость</div>
+    <div class="blocks">
+      <div class="blk"><div class="lbl">Ошибка</div><p class="txt">всё в кадре одинаково чёткое.</p></div>
+      <div class="blk"><div class="lbl">Направление</div><p class="txt">у настоящей камеры есть фокус. Решите, что в кадре главное.</p></div>
+    </div>
+    <div class="note">одна точка фокуса</div>
+    <svg class="grain"><filter id="g"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="3" seed="3" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100%" height="100%" filter="url(#g)"/></svg>
+  </div>
+</body>
+</html>

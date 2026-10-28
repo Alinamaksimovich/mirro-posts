@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Слишком AI — 05</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .title { position: absolute; left: var(--m); top: 400px; font-size: 76px; }
+
+    .slide { background: radial-gradient(circle at 96% 6%, #FFFFFF 0%, rgba(255,255,255,.85) 12%, rgba(255,247,230,0) 46%), var(--cream); }
+    .title { font-size: 96px; text-shadow: -10px 12px 0 rgba(13,13,13,.10), -20px 24px 0 rgba(13,13,13,.06); }
+    .src { position: absolute; right: 120px; top: 190px; width: 26px; height: 26px; border-radius: 50%; background: var(--red); box-shadow: 0 0 0 10px rgba(147,4,0,.12); }
+    .srcl { position: absolute; right: 160px; top: 186px; font-family: "Playfair", serif; font-style: italic; font-size: 26px; color: var(--red); }
+    .ray { position: absolute; right: 134px; top: 212px; width: 1px; height: 260px; background: var(--red); opacity: .4; transform-origin: top; transform: rotate(42deg); }
+  </style>
+</head>
+<body>
+  <div class="slide">
+    <div class="head"><img src="../../assets/logo_black.png" alt="promptica"><div class="meta">Слишком AI<br>05 / 06</div></div>
+    <div class="num">04</div>
+    <div class="src"></div><div class="srcl">источник</div><div class="ray"></div>
+    <div class="h title">Странный<br>свет</div>
+    <div class="blocks">
+      <div class="blk"><div class="lbl">Ошибка</div><p class="txt">непонятно, откуда он идёт.</p></div>
+      <div class="blk"><div class="lbl">Направление</div><p class="txt">у света в кадре должен быть источник и логика.</p></div>
+    </div>
+    <div class="note">откуда свет?</div>
+    <svg class="grain"><filter id="g"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="3" seed="5" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100%" height="100%" filter="url(#g)"/></svg>
+  </div>
+</body>
+</html>
