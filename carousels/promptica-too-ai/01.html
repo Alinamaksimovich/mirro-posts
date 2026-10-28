@@ -7,7 +7,8 @@
   <style>
     /* Слайд 1 — MP4. Подложка: нарезка из 4 кадров (img/01-frames, 14 кадров × 24 fps = 0,583 с),
        повторяется 10 раз = 5,833 с. Склейка «конец → начало» такая же, как все остальные, поэтому цикл бесшовный.
-       Рендер: node scripts/render-video.js carousels/promptica-too-ai/01.html output/promptica-too-ai/01.mp4 5.833333 30 */
+       Рендер: node scripts/render-video.js carousels/promptica-too-ai/01.html output/promptica-too-ai/01.mp4 5.833333 30
+       Версия из «плохих» генераций: ...01.html?set=bad → 01-bad.mp4 */
     .slide { background: var(--black); }
     .frames img { position: absolute; left: 0; top: 0; width: 1080px; height: 1440px; display: none; z-index: 0; }
 
@@ -38,11 +39,18 @@
 <script>
   const N = 14, SRC_FPS = 24, LOOP = N / SRC_FPS; // 0,5833 с
   const box = document.getElementById('frames'), turb = document.getElementById('turb');
+  const BAD = new URLSearchParams(location.search).get('set') === 'bad'; // ?set=bad — версия из «плохих» генераций
+  const MAP = [0,0,0,0,1,1,1,2,2,2,2,3,3,3];                             // какое из 4 фото на каком кадре (4+3+4+3)
   const imgs = [];
-  for (let i = 1; i <= N; i++) {
-    const im = document.createElement('img');
-    im.src = 'img/01-frames/f' + String(i).padStart(2, '0') + '.jpg';
-    box.appendChild(im); imgs.push(im);
+  if (BAD) {
+    const four = [1, 2, 3, 4].map(n => { const im = document.createElement('img'); im.src = 'img/01-frames-bad/p' + n + '.jpg'; box.appendChild(im); return im; });
+    for (let i = 0; i < N; i++) imgs.push(four[MAP[i]]);
+  } else {
+    for (let i = 1; i <= N; i++) {
+      const im = document.createElement('img');
+      im.src = 'img/01-frames/f' + String(i).padStart(2, '0') + '.jpg';
+      box.appendChild(im); imgs.push(im);
+    }
   }
   let cur = -1;
   // t — секунды; frame — номер кадра ролика (для «живого» зерна)
