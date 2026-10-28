@@ -32,9 +32,9 @@ html, body { width: 1080px; height: 1350px; overflow: hidden; }
 
 /* пара «не ок / ок»: две рамки под фото + подписи под ними.
    Фото кладутся в img/NN-bad.jpg и img/NN-good.jpg (NN = номер слайда) — пока их нет, видна схема. */
-.pair { position: absolute; left: var(--m); right: var(--m); top: 540px; display: flex; gap: 28px; }
+.pair { position: absolute; left: var(--m); right: var(--m); top: 520px; display: flex; gap: 28px; }
 .col { flex: 1; }
-.ph { position: relative; height: 470px; background: rgba(13,13,13,.06); overflow: hidden; }
+.ph { position: relative; height: 520px; background: rgba(13,13,13,.06); overflow: hidden; }
 .ph img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .ph .hint { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; text-align: center; font-size: 17px; letter-spacing: .12em; text-transform: uppercase; color: rgba(13,13,13,.4); padding: 20px; line-height: 1.6; }
 .ph .x { position: absolute; inset: 0; background: linear-gradient(to top right, transparent calc(50% - .5px), rgba(13,13,13,.12) 50%, transparent calc(50% + .5px)), linear-gradient(to bottom right, transparent calc(50% - .5px), rgba(13,13,13,.12) 50%, transparent calc(50% + .5px)); }
