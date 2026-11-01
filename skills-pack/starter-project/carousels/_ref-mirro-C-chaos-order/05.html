@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Почему удобно — 05</title>
+  <link rel="stylesheet" href="../../shared/brand.css">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .s5 { background: var(--lime); }
+    .capsule { position: absolute; left: 64px; right: 64px; top: 90px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .capsule .cell { height: 200px; display: flex; align-items: center; justify-content: center; }
+    .capsule img { max-height: 190px; max-width: 220px; object-fit: contain; filter: drop-shadow(0 16px 20px rgba(44,44,42,.25)); }
+    .brand { position: absolute; left: 56px; top: 540px; font-family: var(--font-display); font-weight: 900; font-size: 210px; line-height: .9; letter-spacing: -0.04em; }
+    .tl { position: absolute; left: 64px; top: 760px; font-family: var(--font-display); font-weight: 500; font-size: 46px; line-height: 1.1; width: 900px; }
+    .list { position: absolute; left: 64px; top: 900px; font-family: var(--font-mono); font-size: 22px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; line-height: 2; }
+    .cta { position: absolute; left: 64px; right: 64px; top: 1110px; height: 110px; border-radius: 60px; background: var(--dark); color: var(--cream); display: flex; align-items: center; justify-content: space-between; padding: 0 44px; }
+    .cta b { font-family: var(--font-mono); font-size: 28px; color: var(--lime); }
+    .cta span { font-size: 26px; font-weight: 600; }
+  </style>
+</head>
+<body>
+  <div class="slide s5">
+    <div class="capsule">
+      <div class="cell"><img src="img/item-coat-yellow.png" alt=""></div>
+      <div class="cell"><img src="img/item-dress-print.png" alt=""></div>
+      <div class="cell"><img src="img/item-bag-pink.png" alt=""></div>
+      <div class="cell"><img src="img/item-boots.png" alt=""></div>
+      <div class="cell"><img src="img/item-top-green.png" alt=""></div>
+      <div class="cell"><img src="img/item-blouse-print.png" alt=""></div>
+      <div class="cell"><img src="img/item-flats-red.png" alt=""></div>
+      <div class="cell"><img src="img/item-tee-white.png" alt=""></div>
+    </div>
+    <div class="brand">MIRRO</div>
+    <div class="tl">твой гардероб думает за тебя</div>
+    <div class="list">01 — всегда знаешь, что надеть<br>02 — все вещи перед глазами<br>03 — без лишних покупок</div>
+    <div class="cta"><b>@Mirro_wardrobe_bot</b><span>ссылка в шапке профиля ↗</span></div>
+    <div class="foot" style="color: var(--dark);"><span>MIRRO®</span><span>05 — 05</span></div>
+  </div>
+<script src="garments.js"></script>
+</body>
+</html>

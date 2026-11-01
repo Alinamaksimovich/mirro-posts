@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Слишком AI — 02</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .title { position: absolute; left: var(--m); top: 345px; font-size: 68px; }
+
+    .gloss { position: relative; color: var(--black); }
+    /* пластик: один мягкий блик по верху букв, как на гладкой поверхности */
+    .gloss::after { content: attr(data-t); position: absolute; inset: 0; color: transparent;
+      background: linear-gradient(180deg, rgba(255,255,255,0) 8%, rgba(255,255,255,.55) 16%, rgba(255,255,255,0) 30%, rgba(255,255,255,0) 58%, rgba(255,255,255,.4) 64%, rgba(255,255,255,0) 76%);
+      -webkit-background-clip: text; background-clip: text; pointer-events: none; }
+  
+    /* слайд с фото 9:16: номер и заголовок в одну строку, фото целиком */
+    .num { top: 150px; font-size: 96px; }
+    .title { top: 160px; left: 262px; font-size: 52px; }
+    .pair { top: 292px; }
+    .ph { height: auto; aspect-ratio: 9 / 16; }
+  </style>
+</head>
+<body>
+  <div class="slide">
+    <div class="head"><img src="../../assets/logo_black.png" alt="promptica"><div class="meta">Слишком AI<br>02 / 06</div></div>
+    <div class="num">01</div>
+
+    <div class="h title gloss" data-t="Пластиковые&#10;материалы" style="white-space:pre-line">Пластиковые
+материалы</div>
+    <div class="pair">
+      <div class="col bad"><div class="ph"><span class="badge">✕ не ок</span><div class="x"></div><div class="hint">фото: глянцевая кожа<br>и ткань</div><img src="img/02-bad.jpg" style="object-position:50% 0" alt="" onerror="this.remove()"></div>
+        <div class="cap"><div class="lbl">Ошибка</div><p class="txt">кожа и ткань блестят как глянцевый пластик.</p></div></div>
+      <div class="col good"><div class="ph"><span class="badge">✓ ок</span><div class="x"></div><div class="hint">фото: матовая живая<br>фактура</div><img src="img/02-good.jpg" style="object-position:50% 0" alt="" onerror="this.remove()"></div>
+        <div class="cap"><div class="lbl">Направление</div><p class="txt">следите за фактурой. Живая поверхность матовая и неидеальная.</p></div></div>
+    </div>
+    <div class="note">матовое &gt; глянцевое</div>
+    <svg class="grain"><filter id="g"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="3" seed="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100%" height="100%" filter="url(#g)"/></svg>
+  </div>
+</body>
+</html>

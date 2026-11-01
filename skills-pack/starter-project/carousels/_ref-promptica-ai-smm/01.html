@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>AI SMM-система — 01 (анимация)</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Слайд 1 — MP4. Сценарий (6 с, цикл):
+       0.4–2.5 с  текст печатается по буквам, мигает красный курсор
+       2.8–3.4 с  выделение «как в редакторе» протягивается по «продавал?»
+       3.4–6.0 с  пауза, курсор мигает; подпись «листай» проявляется */
+    .t { position: absolute; left: var(--m); top: 470px; width: 900px; font-size: 104px; line-height: 1.08; }
+    .caret { display: inline-block; width: 5px; height: .9em; background: var(--red); vertical-align: -0.08em; margin-left: 4px; }
+    .sel { position: relative; }
+    .sel .hlbox { position: absolute; left: -3px; top: .06em; bottom: -.02em; background: rgba(147,4,0,.16); box-shadow: -3px 0 0 0 var(--red), 3px 0 0 0 var(--red); }
+    .swipe { position: absolute; left: var(--m); bottom: var(--m); font-size: 19px; font-weight: 400; }
+  </style>
+</head>
+<body>
+  <div class="slide bg-cream">
+    <div class="head"><img src="../../assets/logo_black.png" alt="promptica"><div class="meta">AI SMM-система<br>01 / 07</div></div>
+    <p class="type t" id="t"></p>
+    <div class="swipe" id="swipe">листай →</div>
+    <svg class="grain" style="opacity:.18"><filter id="g"><feTurbulence id="turb" type="fractalNoise" baseFrequency=".9" numOctaves="3" seed="1" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100%" height="100%" filter="url(#g)"/></svg>
+  </div>
+<script>
+  const LINE1 = 'хотите, чтобы', LINE2 = 'контент', WORD = 'продавал?';
+  const FULL = LINE1 + '\n' + LINE2 + '\n' + WORD;
+  const T0 = 0.4, PER = 0.07, HL0 = 2.8, HL1 = 3.4, DUR = 6;
+  const el = document.getElementById('t'), swipe = document.getElementById('swipe'), turb = document.getElementById('turb');
+  const ease = x => 1 - Math.pow(1 - x, 3);
+  const esc = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;');
+
+  // t — время в секундах; вызывается рендером кадров (window.setT) или показывает финальный кадр
+  window.setT = function (t, frame = 0) {
+    const n = Math.max(0, Math.min(FULL.length, Math.floor((t - T0) / PER) + 1));
+    const typed = t < T0 ? '' : FULL.slice(0, n);
+    const done = n >= FULL.length && t >= T0;
+    const blinkOn = !done || Math.floor((t - HL1) / 0.5) % 2 === 0 || t < HL1;
+    const caret = blinkOn ? '<span class="caret"></span>' : '<span class="caret" style="opacity:0"></span>';
+    const lines = typed.split('\n');
+    let html = lines.map(esc).join('<br>');
+    if (lines.length === 3 && lines[2].length) {
+      const p = Math.max(0, Math.min(1, (t - HL0) / (HL1 - HL0)));
+      const head = lines.slice(0, 2).map(esc).join('<br>') + '<br>';
+      html = head + '<span class="sel">' + (p > 0 ? `<span class="hlbox" style="right:calc(${(1 - ease(p)) * 100}% + 3px)"></span>` : '') + esc(lines[2]) + '</span>';
+    }
+    el.innerHTML = html + caret;
+    swipe.style.opacity = Math.max(0, Math.min(1, (t - 3.6) / 0.5));
+    turb.setAttribute('seed', String((frame % 8) + 1)); // живое плёночное зерно
+  };
+  document.fonts.ready.then(() => window.setT(DUR));
+</script>
+</body>
+</html>
