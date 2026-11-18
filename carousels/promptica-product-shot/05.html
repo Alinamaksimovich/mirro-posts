@@ -7,21 +7,12 @@
 </head>
 <body>
   <div class="slide ">
-    <div class="photo"><div class="hint">сюда — кадр «после»: продукт без искажений</div><img src="img/05-after.jpg" alt="" onerror="this.remove()"></div>
-    <div class="scrim"></div>
-    <div class="steps"><span class="">01</span><span class="">02</span><span class="">03</span><span class="on">04</span><span class="">05</span></div>
-    <div class="vname">NANO BANANA</div>
-    <div class="before"><div class="in"><div class="hint">фото «до»:<br>продукт отдельно</div><img src="img/05-before.jpg" alt="" onerror="this.remove()"></div><div class="cap">до</div></div>
-    <div class="copy"><div class="kick">продукт без искажений</div>
-      <div class="row"><div class="l">зачем</div><div class="t">поставить настоящий продукт в кадр, ничего не меняя.</div></div>
-      <div class="row"><div class="l">что получаем</div><div class="t">упаковка, логотип и форма — как в жизни.</div></div></div>
-    <div class="note">продукт не должен «плыть»</div>
-    <div class="head"><img src="../../assets/logo_cream.png" alt="promptica"><div class="meta">продуктовый кадр<br>05 / 07</div></div>
+    <div class="photos bottom"><div class="ph"><div class="hint">продукт отдельно</div><img src="img/05-before.jpg" alt="" onerror="this.remove()"><div class="c">до</div></div><div class="ph"><div class="hint">продукт в сцене</div><img src="img/05-after.jpg" alt="" onerror="this.remove()"><div class="c">после</div></div></div>
+    <div class="tool" style="top:215px"><div class="n">[04]</div><h2>Nano Banana</h2><div class="r">продукт без искажений</div></div>
+    <div class="txt" style="top:215px"><p>Настоящий продукт переносим в сцену тоже в нём: по фото упаковки он сохраняет форму и цвет, а сцена остаётся нетронутой.</p><p>Мелкий текст и логотипы он иногда перерисовывает — на упаковке это видно первым делом.</p><div class="tip">Сверяйте этикетку с оригиналом: если буквы поплыли, дорисовывайте текст в редакторе.</div></div>
+    
+    <div class="head"><img src="../../assets/logo_black.png" alt="promptica"><div class="meta">продуктовый кадр<br>05 / 07</div></div>
     <svg class="grain"><filter id="g"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="3" seed="5" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100%" height="100%" filter="url(#g)"/></svg>
   </div>
-<script>
-  const v = document.querySelector('.vname');
-  document.fonts.ready.then(() => { let fs = 190; v.style.fontSize = fs + 'px'; while (v.scrollHeight > 1040 && fs > 40) { fs -= 4; v.style.fontSize = fs + 'px'; } });
-</script>
 </body>
 </html>

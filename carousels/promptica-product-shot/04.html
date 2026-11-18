@@ -7,21 +7,12 @@
 </head>
 <body>
   <div class="slide ">
-    <div class="photo"><div class="hint">сюда — кадр «после»: базовый кадр</div><img src="img/04-after.jpg" alt="" onerror="this.remove()"></div>
-    <div class="scrim"></div>
-    <div class="steps"><span class="">01</span><span class="">02</span><span class="on">03</span><span class="">04</span><span class="">05</span></div>
-    <div class="vname">NANO BANANA</div>
-    <div class="before"><div class="in"><div class="hint">фото «до»:<br>референс</div><img src="img/04-before.jpg" alt="" onerror="this.remove()"></div><div class="cap">до</div></div>
-    <div class="copy"><div class="kick">базовый кадр <span style="font-size:34px;opacity:.7">· или seedream</span></div>
-      <div class="row"><div class="l">зачем</div><div class="t">собрать сцену и фон под продукт.</div></div>
-      <div class="row"><div class="l">что получаем</div><div class="t">основа кадра: композиция, свет, окружение.</div></div></div>
-    <div class="note">сцена без продукта</div>
-    <div class="head"><img src="../../assets/logo_cream.png" alt="promptica"><div class="meta">продуктовый кадр<br>04 / 07</div></div>
+    <div class="photos top"><div class="ph"><div class="hint">референс</div><img src="img/04-before.jpg" alt="" onerror="this.remove()"><div class="c">до</div></div><div class="ph"><div class="hint">базовый кадр без продукта</div><img src="img/04-after.jpg" alt="" onerror="this.remove()"><div class="c">после</div></div></div>
+    <div class="tool" style="top:820px"><div class="n">[03]</div><h2>Nano Banana</h2><div class="r">базовый кадр</div></div>
+    <div class="txt" style="top:820px"><p>Сцену и фон под продукт собираем в Nano Banana: он принимает сразу несколько референсов и достраивает окружение по ним.</p><p>Слабое место — кожа и материалы: без подсказки легко получается гладкий результат, который выдаёт нейросеть.</p><div class="tip">Заранее решите, какой материал должен читаться в кадре, и проверяйте его крупным планом.</div></div>
+    <div class="topscrim"></div>
+    <div class="head on-photo"><img src="../../assets/logo_cream.png" alt="promptica"><div class="meta">продуктовый кадр<br>04 / 07</div></div>
     <svg class="grain"><filter id="g"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="3" seed="4" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100%" height="100%" filter="url(#g)"/></svg>
   </div>
-<script>
-  const v = document.querySelector('.vname');
-  document.fonts.ready.then(() => { let fs = 190; v.style.fontSize = fs + 'px'; while (v.scrollHeight > 1040 && fs > 40) { fs -= 4; v.style.fontSize = fs + 'px'; } });
-</script>
 </body>
 </html>

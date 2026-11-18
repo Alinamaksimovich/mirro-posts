@@ -7,21 +7,12 @@
 </head>
 <body>
   <div class="slide ">
-    <div class="photo"><div class="hint">сюда — кадр «после»: идея и референс</div><img src="img/03-after.jpg" alt="" onerror="this.remove()"></div>
-    <div class="scrim"></div>
-    <div class="steps"><span class="">01</span><span class="on">02</span><span class="">03</span><span class="">04</span><span class="">05</span></div>
-    <div class="vname">MIDJOURNEY</div>
-
-    <div class="copy"><div class="kick">идея и референс</div>
-      <div class="row"><div class="l">зачем</div><div class="t">найти сцену, свет и настроение до сборки кадра.</div></div>
-      <div class="row"><div class="l">что получаем</div><div class="t">референсы, от которых строим весь кадр.</div></div></div>
-    <div class="note">сначала референс</div>
-    <div class="head"><img src="../../assets/logo_cream.png" alt="promptica"><div class="meta">продуктовый кадр<br>03 / 07</div></div>
+    <div class="photos bottom"><div class="ph"><div class="hint">референс сцены</div><img src="img/03-before.jpg" alt="" onerror="this.remove()"></div><div class="ph"><div class="hint">референс света</div><img src="img/03-after.jpg" alt="" onerror="this.remove()"></div></div>
+    <div class="tool" style="top:215px"><div class="n">[02]</div><h2>Midjourney</h2><div class="r">идея и референс</div></div>
+    <div class="txt" style="top:215px"><p>В Midjourney рождается настроение кадра: подбираем свет, композицию и цветовую среду, пока ещё нет ни продукта, ни финального сюжета.</p><p>Он силён в эстетике, но плохо слушается буквальных инструкций: надписи и точные детали упаковки — не его территория.</p><div class="tip">Берите отсюда референс сцены, а не готовый кадр.</div></div>
+    
+    <div class="head"><img src="../../assets/logo_black.png" alt="promptica"><div class="meta">продуктовый кадр<br>03 / 07</div></div>
     <svg class="grain"><filter id="g"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="3" seed="3" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100%" height="100%" filter="url(#g)"/></svg>
   </div>
-<script>
-  const v = document.querySelector('.vname');
-  document.fonts.ready.then(() => { let fs = 190; v.style.fontSize = fs + 'px'; while (v.scrollHeight > 1040 && fs > 40) { fs -= 4; v.style.fontSize = fs + 'px'; } });
-</script>
 </body>
 </html>
