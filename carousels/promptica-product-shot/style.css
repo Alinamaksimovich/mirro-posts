@@ -1,0 +1,46 @@
+/* promptica — «Продуктовый кадр». Фото на весь слайд + огромное вертикальное название инструмента.
+   Цвета: #0D0D0D, #FFFFFF, #930400, #fff7e6. Шрифты: Helvetica Neue Black Ext Obl, Helios Ext, Playfair Italic. */
+@font-face { font-family: 'HN Black Ext'; src: url('../../assets/fonts/HelveticaNeue-BlackExtObl.otf'); }
+@font-face { font-family: 'Helios Ext'; src: url('../../assets/fonts/HeliosExtC.ttf'); }
+@font-face { font-family: 'Playfair'; src: url('../../assets/fonts/PlayfairDisplay-Italic.ttf'); font-style: italic; font-weight: 400 900; }
+:root { --black: #0D0D0D; --red: #930400; --cream: #fff7e6; --m: 86px; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { width: 1080px; height: 1350px; overflow: hidden; }
+.slide { position: relative; width: 1080px; height: 1350px; overflow: hidden; background: var(--black); color: var(--cream); font-family: 'Helios Ext', sans-serif; }
+.slide.red { background: var(--red); }
+
+/* фото на весь слайд (пока нет файла — тёмная заглушка с подсказкой) */
+.photo { position: absolute; inset: 0; background: #34312d; }
+.photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.photo .hint { position: absolute; left: 0; right: 0; top: 56%; text-align: center; font-size: 18px; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,247,230,.35); line-height: 1.7; }
+.scrim { position: absolute; inset: 0; background: linear-gradient(0deg, rgba(13,13,13,.82) 0%, rgba(13,13,13,.5) 30%, rgba(13,13,13,0) 58%), linear-gradient(180deg, rgba(13,13,13,.5) 0%, rgba(13,13,13,0) 20%); }
+
+/* колонтитул */
+.head { position: absolute; top: var(--m); left: var(--m); right: var(--m); display: flex; justify-content: space-between; align-items: flex-start; z-index: 5; }
+.head img { height: 34px; display: block; }
+.head .meta { text-align: right; font-size: 19px; line-height: 1.3; }
+
+/* шаги 01–05 */
+.steps { position: absolute; left: var(--m); top: 150px; display: flex; gap: 18px; font-size: 17px; letter-spacing: .08em; z-index: 5; }
+.steps span { opacity: .45; padding-bottom: 6px; border-bottom: 2px solid transparent; }
+.steps span.on { opacity: 1; border-bottom-color: var(--cream); }
+
+/* огромное вертикальное название */
+.vname { position: absolute; right: 40px; top: 230px; writing-mode: vertical-rl; transform: rotate(180deg); white-space: nowrap; font-family: 'HN Black Ext', sans-serif; text-transform: uppercase; line-height: .92; letter-spacing: -0.02em; font-size: 170px; z-index: 4; }
+
+/* карточка «до» */
+.before { position: absolute; left: var(--m); top: 230px; width: 250px; height: 330px; background: var(--cream); padding: 10px 10px 36px; transform: rotate(-4deg); z-index: 4; box-shadow: 0 14px 20px rgba(0,0,0,.35); }
+.before .in { position: relative; width: 100%; height: 100%; background: #bdb6a8; overflow: hidden; }
+.before img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.before .hint { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; text-align: center; padding: 12px; font-size: 13px; letter-spacing: .1em; text-transform: uppercase; color: rgba(13,13,13,.45); line-height: 1.6; }
+.before .cap { position: absolute; left: 12px; bottom: 9px; font-size: 15px; letter-spacing: .1em; color: var(--black); }
+
+/* текстовый блок снизу слева */
+.copy { position: absolute; left: var(--m); bottom: 150px; width: 640px; z-index: 4; }
+.copy .kick { font-family: 'Playfair', serif; font-style: italic; font-size: 60px; line-height: 1; margin-bottom: 34px; }
+.copy .row { margin-bottom: 20px; }
+.copy .l { font-size: 17px; letter-spacing: .12em; text-transform: uppercase; opacity: .6; margin-bottom: 7px; }
+.copy .t { font-size: 28px; line-height: 1.3; }
+.note { position: absolute; left: var(--m); bottom: 70px; font-family: 'Playfair', serif; font-style: italic; font-size: 30px; z-index: 5; }
+.swipe { position: absolute; right: var(--m); bottom: 70px; font-size: 19px; z-index: 5; }
+.grain { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; mix-blend-mode: multiply; opacity: .2; z-index: 10; }
