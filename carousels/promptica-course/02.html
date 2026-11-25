@@ -6,18 +6,17 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="slide ">
-    <div class="abs" style="left:86px;top:200px;width:908px"><div class="fit" data-fit="908" style="line-height:.9">Видеоуроки</div></div>
-    <div class="abs mrow" style="left:86px;top:340px;width:908px"><span class="br">[формат]</span><span>короткие модули · своё расписание</span></div>
-    <div class="abs" style="left:86px;top:480px;width:840px;font-size:40px;line-height:1.38">Смотрите уроки в удобное время и идите в своём темпе. Каждый урок разбит на небольшие части, поэтому не нужно выделять на него целый день.</div>
-    <div class="abs lbl br" style="left:86px;top:900px">[один урок = несколько небольших частей]</div>
-    <div class="abs" style="left:86px;top:944px;width:908px;display:flex;gap:8px"><div style="flex:3;height:120px;background:#fff7e6;border:1px solid rgba(13,13,13,.15);padding:10px 12px"><span class="br" style="font-size:16px">[01]</span></div><div style="flex:2;height:120px;background:#fff7e6;border:1px solid rgba(13,13,13,.15);padding:10px 12px"><span class="br" style="font-size:16px">[02]</span></div><div style="flex:4;height:120px;background:#fff7e6;border:1px solid rgba(13,13,13,.15);padding:10px 12px"><span class="br" style="font-size:16px">[03]</span></div><div style="flex:2;height:120px;background:#fff7e6;border:1px solid rgba(13,13,13,.15);padding:10px 12px"><span class="br" style="font-size:16px">[04]</span></div><div style="flex:3;height:120px;background:#fff7e6;border:1px solid rgba(13,13,13,.15);padding:10px 12px"><span class="br" style="font-size:16px">[05]</span></div></div>
+  <div class="slide cream">
+    <div class="abs" style="left:86px;top:170px"><div class="thin" data-fit="908" style="">Видеоуроки</div></div>
+    <div class="abs it" style="left:86px;top:480px;width:850px;font-size:60px;line-height:1.1">Смотрите уроки в удобное время и идите в своём темпе.</div>
+    <div class="abs" style="left:86px;top:760px;width:640px;font-size:30px;line-height:1.42">Каждый урок разбит на небольшие части, поэтому не нужно выделять на него целый день.</div>
+    <div class="abs mrow" style="left:86px;top:1250px;width:908px"><span>короткие модули</span><span>своё расписание</span><span class="rd">в удобное время</span></div>
     <div class="hd"><img src="../../assets/logo_black.png" alt="promptica"></div>
-    <div class="mt">курс «нейросети с нуля»<br>02 / 08</div>
+    <div class="mt">нейросети с нуля<br>02 / 08</div>
     <svg class="grain"><filter id="g"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="3" seed="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100%" height="100%" filter="url(#g)"/></svg>
   </div>
 <script>
-Promise.all([document.fonts.load("100px 'HN Black Ext'"), document.fonts.load("20px 'Helios Ext'"), document.fonts.ready]).then(() => {
+Promise.all([document.fonts.load("200 100px 'Vela'"), document.fonts.load("20px 'Helios Ext'"), document.fonts.load("italic 30px 'Playfair'"), document.fonts.ready]).then(() => {
   document.querySelectorAll('[data-fit]').forEach(el => { el.style.fontSize = '100px'; el.style.fontSize = (100 * parseFloat(el.dataset.fit) / el.getBoundingClientRect().width) + 'px'; });
 });
 </script>

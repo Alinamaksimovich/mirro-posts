@@ -6,16 +6,20 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="slide ">
-    <div class="abs" style="left:86px;top:200px;width:908px"><div class="fit" data-fit="908" style="line-height:.9">Из навыка<br>в заказы</div></div>
-    <div class="abs mrow" style="left:86px;top:500px;width:908px"><span class="br">[коммерческий модуль]</span><span>модуль 05</span></div>
-    <div class="abs" style="left:86px;top:600px;width:908px"><div class="row" style="padding:26px 0;font-size:34px"><span class="n">[01]</span><span class="t">как упаковать фотосессию в услугу</span></div><div class="row" style="padding:26px 0;font-size:34px"><span class="n">[02]</span><span class="t">пакеты и цены</span></div><div class="row" style="padding:26px 0;font-size:34px"><span class="n">[03]</span><span class="t">портфолио, которое продаёт</span></div></div>
-    <div class="hd"><img src="../../assets/logo_black.png" alt="promptica"></div>
-    <div class="mt">курс «нейросети с нуля»<br>06 / 08</div>
+  <div class="slide red">
+    <div class="abs micro" style="left:86px;top:160px;opacity:.8">коммерческий модуль · модуль 5</div>
+    <div class="abs it" style="left:86px;top:240px;font-size:118px;line-height:1">Из навыка <span style="display:inline-block;width:250px;height:150px;vertical-align:-18px;background:rgba(255,247,230,.22);margin:0 8px;position:relative;overflow:hidden"><img src="img/06-a.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" onerror="this.remove()"></span><br>в заказы</div>
+    <div class="abs" style="left:86px;top:720px;width:908px">
+      <div style="padding:26px 0;border-top:1px solid rgba(255,247,230,.35);font-size:36px">как упаковать фотосессию в услугу</div>
+      <div style="padding:26px 0;border-top:1px solid rgba(255,247,230,.35);font-size:36px">пакеты и цены</div>
+      <div style="padding:26px 0;border-top:1px solid rgba(255,247,230,.35);border-bottom:1px solid rgba(255,247,230,.35);font-size:36px">портфолио, которое продаёт</div>
+    </div>
+    <div class="hd"><img src="../../assets/logo_cream.png" alt="promptica"></div>
+    <div class="mt" style="color:#fff7e6">нейросети с нуля<br>06 / 08</div>
     <svg class="grain"><filter id="g"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="3" seed="6" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100%" height="100%" filter="url(#g)"/></svg>
   </div>
 <script>
-Promise.all([document.fonts.load("100px 'HN Black Ext'"), document.fonts.load("20px 'Helios Ext'"), document.fonts.ready]).then(() => {
+Promise.all([document.fonts.load("200 100px 'Vela'"), document.fonts.load("20px 'Helios Ext'"), document.fonts.load("italic 30px 'Playfair'"), document.fonts.ready]).then(() => {
   document.querySelectorAll('[data-fit]').forEach(el => { el.style.fontSize = '100px'; el.style.fontSize = (100 * parseFloat(el.dataset.fit) / el.getBoundingClientRect().width) + 'px'; });
 });
 </script>

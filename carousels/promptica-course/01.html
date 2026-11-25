@@ -7,16 +7,17 @@
 </head>
 <body>
   <div class="slide ">
-    <div class="abs mrow" style="left:86px;top:190px;width:908px"><span class="br">[курс]</span><span>листай →</span></div>
-    <div class="abs" style="left:86px;top:240px;width:908px"><div class="fit" data-fit="908" style="line-height:.9">Нейросети<br>с нуля</div></div>
-    <div class="abs" style="left:86px;top:540px;width:820px;font-size:36px;line-height:1.3">бренд-фотосессия без студии: от идеи до готовой серии кадров</div>
-    <div class="ph" style="left:0px;top:700px;width:1080px;height:650px"><div class="hn">лучшая работа ученика</div><img src="img/01-a.jpg" alt="" style="object-position:50% 45%" onerror="this.remove()"></div>
+    <div class="ph" style="left:72px;top:0;width:1008px;height:1350px;background:#fff;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 70px);mask-image:linear-gradient(90deg,transparent 0,#000 70px)"><div class="hn">фото на весь пост</div><img src="img/01-a.jpg" alt="" onerror="this.remove()"></div>
+    <div class="abs light" style="left:86px;top:170px;font-size:60px;line-height:1.04;width:300px">Нейросети<br>с нуля</div>
+    <div class="abs" style="left:86px;top:330px;width:250px;font-size:22px;line-height:1.4">бренд-фотосессия без студии: от идеи до готовой серии кадров</div>
+    <div class="abs micro" style="left:86px;top:1262px">курс · 2 месяца</div>
+    <div class="abs micro" style="right:86px;top:1262px">листай →</div>
     <div class="hd"><img src="../../assets/logo_black.png" alt="promptica"></div>
-    <div class="mt">курс «нейросети с нуля»<br>01 / 08</div>
+    <div class="mt">курс promptica<br>01 / 08</div>
     <svg class="grain"><filter id="g"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="3" seed="1" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100%" height="100%" filter="url(#g)"/></svg>
   </div>
 <script>
-Promise.all([document.fonts.load("100px 'HN Black Ext'"), document.fonts.load("20px 'Helios Ext'"), document.fonts.ready]).then(() => {
+Promise.all([document.fonts.load("200 100px 'Vela'"), document.fonts.load("20px 'Helios Ext'"), document.fonts.load("italic 30px 'Playfair'"), document.fonts.ready]).then(() => {
   document.querySelectorAll('[data-fit]').forEach(el => { el.style.fontSize = '100px'; el.style.fontSize = (100 * parseFloat(el.dataset.fit) / el.getBoundingClientRect().width) + 'px'; });
 });
 </script>

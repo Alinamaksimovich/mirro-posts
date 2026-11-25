@@ -7,21 +7,19 @@
 </head>
 <body>
   <div class="slide ">
-    <div class="abs name" style="left:86px;top:190px;font-size:52px;white-space:nowrap">Кто ведёт курс</div>
-    <div class="ph" style="left:0px;top:300px;width:538px;height:640px"><div class="hn">фото Алины</div><img src="img/03-a.jpg" alt="" style="object-position:50% 25%" onerror="this.remove()"></div>
-    <div class="ph" style="left:542px;top:300px;width:538px;height:640px"><div class="hn">фото Ани</div><img src="img/03-b.jpg" alt="" style="object-position:50% 25%" onerror="this.remove()"></div>
-    <div class="abs" style="left:86px;top:980px;width:420px"><div class="name" style="font-size:62px">Алина</div>
-      <div class="lbl br" style="margin-top:16px">[куратор курса]</div>
-      <div style="font-size:24px;line-height:1.4;margin-top:12px">креативный директор promptica<br>AI-креатор</div></div>
-    <div class="abs" style="left:582px;top:980px;width:420px"><div class="name" style="font-size:62px">Аня</div>
-      <div class="lbl br" style="margin-top:16px">[8 лет в дизайне]</div>
-      <div style="font-size:24px;line-height:1.4;margin-top:12px">брендинг и визуал для соцсетей<br>ведущий креатор</div></div>
+    <div class="abs micro" style="left:86px;top:150px">кто ведёт курс</div>
+    <div class="ph" style="left:0px;top:200px;width:538px;height:720px"><div class="hn">фото Алины</div><img src="img/03-a.jpg" alt="" style="object-position:50% 25%" onerror="this.remove()"></div>
+    <div class="ph" style="left:542px;top:200px;width:538px;height:720px"><div class="hn">фото Ани</div><img src="img/03-b.jpg" alt="" style="object-position:50% 25%" onerror="this.remove()"></div>
+    <div class="abs" style="left:86px;top:960px;width:420px"><div class="light" style="font-size:58px;line-height:1">Алина</div>
+      <div style="font-size:22px;line-height:1.45;margin-top:18px">куратор курса<br>креативный директор promptica<br>AI-креатор</div></div>
+    <div class="abs" style="left:582px;top:960px;width:420px"><div class="light" style="font-size:58px;line-height:1">Аня</div>
+      <div style="font-size:22px;line-height:1.45;margin-top:18px">8 лет в дизайне<br>брендинг и визуал для соцсетей<br>ведущий креатор</div></div>
     <div class="hd"><img src="../../assets/logo_black.png" alt="promptica"></div>
-    <div class="mt">курс «нейросети с нуля»<br>03 / 08</div>
+    <div class="mt">нейросети с нуля<br>03 / 08</div>
     <svg class="grain"><filter id="g"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="3" seed="3" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100%" height="100%" filter="url(#g)"/></svg>
   </div>
 <script>
-Promise.all([document.fonts.load("100px 'HN Black Ext'"), document.fonts.load("20px 'Helios Ext'"), document.fonts.ready]).then(() => {
+Promise.all([document.fonts.load("200 100px 'Vela'"), document.fonts.load("20px 'Helios Ext'"), document.fonts.load("italic 30px 'Playfair'"), document.fonts.ready]).then(() => {
   document.querySelectorAll('[data-fit]').forEach(el => { el.style.fontSize = '100px'; el.style.fontSize = (100 * parseFloat(el.dataset.fit) / el.getBoundingClientRect().width) + 'px'; });
 });
 </script>

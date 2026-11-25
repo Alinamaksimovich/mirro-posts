@@ -7,16 +7,19 @@
 </head>
 <body>
   <div class="slide ">
-    <div class="abs" style="left:86px;top:200px;width:908px"><div class="fit" data-fit="650" style="line-height:.9">2 месяца</div></div>
-    <div class="abs mrow" style="left:86px;top:340px;width:908px"><span class="br">[срок курса]</span><span>с обратной связью</span></div>
-    <div class="abs lbl br" style="left:86px;top:470px">[что входит]</div>
-    <div class="abs" style="left:86px;top:510px;width:908px"><div class="row" style="padding:30px 0;font-size:34px"><i class="cb" style="display:inline-block;margin-right:22px;vertical-align:middle"></i><span class="t">разбор работ участников на курсе</span></div><div class="row" style="padding:30px 0;font-size:34px"><i class="cb" style="display:inline-block;margin-right:22px;vertical-align:middle"></i><span class="t">сборка портфолио</span></div><div class="row" style="padding:30px 0;font-size:34px"><i class="cb" style="display:inline-block;margin-right:22px;vertical-align:middle"></i><span class="t">проверка домашних заданий с комментариями</span></div><div class="row" style="padding:30px 0;font-size:34px"><i class="cb" style="display:inline-block;margin-right:22px;vertical-align:middle"></i><span class="t">ответы кураторов на вопросы по ходу курса</span></div><div class="row" style="padding:30px 0;font-size:34px"><i class="cb" style="display:inline-block;margin-right:22px;vertical-align:middle"></i><span class="t">закрытый чат участников</span></div></div>
+    <div class="abs" style="left:0;top:0;width:430px;height:1350px;background:#fff7e6"></div>
+    <div class="ph" style="left:430px;top:0px;width:650px;height:1350px"><div class="hn">фото или видео для слайда</div><img src="img/04-a.jpg" alt="" style="object-position:50% 40%" onerror="this.remove()"></div>
+    <div class="abs thin" style="left:70px;top:150px;font-size:340px;line-height:.9">2</div>
+    <div class="abs it" style="left:86px;top:500px;font-size:60px;line-height:1">месяца</div>
+    <div class="abs" style="left:86px;top:578px;font-size:22px">с обратной связью</div>
+    <div class="abs micro rd" style="left:86px;top:690px">что входит</div>
+    <div class="abs" style="left:86px;top:726px;width:300px"><div style="padding:13px 0;border-top:1px solid rgba(13,13,13,.25);font-size:21px;line-height:1.35">разбор работ участников на курсе</div><div style="padding:13px 0;border-top:1px solid rgba(13,13,13,.25);font-size:21px;line-height:1.35">сборка портфолио</div><div style="padding:13px 0;border-top:1px solid rgba(13,13,13,.25);font-size:21px;line-height:1.35">проверка домашних заданий с комментариями</div><div style="padding:13px 0;border-top:1px solid rgba(13,13,13,.25);font-size:21px;line-height:1.35">ответы кураторов на вопросы по ходу курса</div><div style="padding:13px 0;border-top:1px solid rgba(13,13,13,.25);font-size:21px;line-height:1.35">закрытый чат участников</div><div style="border-top:1px solid rgba(13,13,13,.25)"></div></div>
     <div class="hd"><img src="../../assets/logo_black.png" alt="promptica"></div>
-    <div class="mt">курс «нейросети с нуля»<br>04 / 08</div>
+    <div class="mt" style="left:86px;right:auto;top:auto;bottom:70px;text-align:left">нейросети с нуля<br>04 / 08</div>
     <svg class="grain"><filter id="g"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="3" seed="4" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100%" height="100%" filter="url(#g)"/></svg>
   </div>
 <script>
-Promise.all([document.fonts.load("100px 'HN Black Ext'"), document.fonts.load("20px 'Helios Ext'"), document.fonts.ready]).then(() => {
+Promise.all([document.fonts.load("200 100px 'Vela'"), document.fonts.load("20px 'Helios Ext'"), document.fonts.load("italic 30px 'Playfair'"), document.fonts.ready]).then(() => {
   document.querySelectorAll('[data-fit]').forEach(el => { el.style.fontSize = '100px'; el.style.fontSize = (100 * parseFloat(el.dataset.fit) / el.getBoundingClientRect().width) + 'px'; });
 });
 </script>

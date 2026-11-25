@@ -1,14 +1,14 @@
-"""Карусель «Нейросети с нуля — что вы получите» (promptica). Тексты — в этом файле; python3 build.py && npm run export -- promptica-course"""
+"""Карусель «Нейросети с нуля — что вы получите» (promptica). Тексты — здесь; python3 build.py && npm run export -- promptica-course"""
 import os
 here = os.path.dirname(os.path.abspath(__file__)); os.chdir(here)
 TOTAL = 8
 FIT = '''<script>
-Promise.all([document.fonts.load("100px 'HN Black Ext'"), document.fonts.load("20px 'Helios Ext'"), document.fonts.ready]).then(() => {
+Promise.all([document.fonts.load("200 100px 'Vela'"), document.fonts.load("20px 'Helios Ext'"), document.fonts.load("italic 30px 'Playfair'"), document.fonts.ready]).then(() => {
   document.querySelectorAll('[data-fit]').forEach(el => { el.style.fontSize = '100px'; el.style.fontSize = (100 * parseFloat(el.dataset.fit) / el.getBoundingClientRect().width) + 'px'; });
 });
 </script>'''
 def grain(n): return f'<svg class="grain"><filter id="g"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="3" seed="{n}" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100%" height="100%" filter="url(#g)"/></svg>'
-def page(n, body, cls='', logo='logo_black.png', col=''):
+def page(n, body, cls='', logo='logo_black.png', meta_style='', meta_text='нейросети с нуля'):
     open(f'{n:02d}.html', 'w', encoding='utf-8').write(f'''<!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -20,82 +20,73 @@ def page(n, body, cls='', logo='logo_black.png', col=''):
   <div class="slide {cls}">
 {body}
     <div class="hd"><img src="../../assets/{logo}" alt="promptica"></div>
-    <div class="mt"{col}>курс «нейросети с нуля»<br>{n:02d} / {TOTAL:02d}</div>
+    <div class="mt"{meta_style}>{meta_text}<br>{n:02d} / {TOTAL:02d}</div>
     {grain(n)}
   </div>
 {FIT}
 </body>
 </html>
 ''')
-def ph(x, y, w, h, hint, fn, pos='50% 35%'):
-    return f'    <div class="ph" style="left:{x}px;top:{y}px;width:{w}px;height:{h}px"><div class="hn">{hint}</div><img src="img/{fn}" alt="" style="object-position:{pos}" onerror="this.remove()"></div>'
-def fit(text, w=908, top=200, color='', lh='.9'):
-    c = f';color:{color}' if color else ''
-    return f'    <div class="abs" style="left:86px;top:{top}px;width:908px"><div class="fit" data-fit="{w}" style="line-height:{lh}{c}">{text}</div></div>'
-def mrow(left, right, top, color=''):
-    c = f';color:{color}' if color else ''
-    return f'    <div class="abs mrow" style="left:86px;top:{top}px;width:908px{c}"><span class="br">{left}</span><span>{right}</span></div>'
-cb = '<i class="cb" style="display:inline-block;margin-right:22px;vertical-align:middle"></i>'
+def ph(x, y, w, h, hint, fn, pos='50% 35%', style=''):
+    return f'    <div class="ph" style="left:{x}px;top:{y}px;width:{w}px;height:{h}px{style}"><div class="hn">{hint}</div><img src="img/{fn}" alt="" style="object-position:{pos}" onerror="this.remove()"></div>'
+def fit(text, w, top, left=86, cls='thin', extra=''):
+    return f'    <div class="abs" style="left:{left}px;top:{top}px"><div class="{cls}" data-fit="{w}" style="{extra}">{text}</div></div>'
 
-# 1 хук
-page(1, f'''{mrow('[курс]','листай →',190)}
-{fit('Нейросети<br>с нуля',908,240)}
-    <div class="abs" style="left:86px;top:540px;width:820px;font-size:36px;line-height:1.3">бренд-фотосессия без студии: от идеи до готовой серии кадров</div>
-{ph(0,700,1080,650,'лучшая работа ученика','01-a.jpg','50% 45%')}''')
-# 2 формат
-parts = ''.join(f'<div style="flex:{f};height:120px;background:#fff7e6;border:1px solid rgba(13,13,13,.15);padding:10px 12px"><span class="br" style="font-size:16px">[{i:02d}]</span></div>' for i, f in enumerate([3, 2, 4, 2, 3], start=1))
-page(2, f'''{fit('Видеоуроки',908,200)}
-{mrow('[формат]','короткие модули · своё расписание',340)}
-    <div class="abs" style="left:86px;top:480px;width:840px;font-size:40px;line-height:1.38">Смотрите уроки в удобное время и идите в своём темпе. Каждый урок разбит на небольшие части, поэтому не нужно выделять на него целый день.</div>
-    <div class="abs lbl br" style="left:86px;top:900px">[один урок = несколько небольших частей]</div>
-    <div class="abs" style="left:86px;top:944px;width:908px;display:flex;gap:8px">{parts}</div>''')
-# 3 кураторы
-page(3, f'''    <div class="abs name" style="left:86px;top:190px;font-size:52px;white-space:nowrap">Кто ведёт курс</div>
-{ph(0,300,538,640,'фото Алины','03-a.jpg','50% 25%')}
-{ph(542,300,538,640,'фото Ани','03-b.jpg','50% 25%')}
-    <div class="abs" style="left:86px;top:980px;width:420px"><div class="name" style="font-size:62px">Алина</div>
-      <div class="lbl br" style="margin-top:16px">[куратор курса]</div>
-      <div style="font-size:24px;line-height:1.4;margin-top:12px">креативный директор promptica<br>AI-креатор</div></div>
-    <div class="abs" style="left:582px;top:980px;width:420px"><div class="name" style="font-size:62px">Аня</div>
-      <div class="lbl br" style="margin-top:16px">[8 лет в дизайне]</div>
-      <div style="font-size:24px;line-height:1.4;margin-top:12px">брендинг и визуал для соцсетей<br>ведущий креатор</div></div>''')
-# 4 срок
+# 1 — одно фото на весь пост, текст в свободной белой колонке слева
+page(1, '''    <div class="ph" style="left:72px;top:0;width:1008px;height:1350px;background:#fff;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 70px);mask-image:linear-gradient(90deg,transparent 0,#000 70px)"><div class="hn">фото на весь пост</div><img src="img/01-a.jpg" alt="" onerror="this.remove()"></div>
+    <div class="abs light" style="left:86px;top:170px;font-size:60px;line-height:1.04;width:300px">Нейросети<br>с нуля</div>
+    <div class="abs" style="left:86px;top:330px;width:250px;font-size:22px;line-height:1.4">бренд-фотосессия без студии: от идеи до готовой серии кадров</div>
+    <div class="abs micro" style="left:86px;top:1262px">курс · 2 месяца</div>
+    <div class="abs micro" style="right:86px;top:1262px">листай →</div>''', meta_text='курс promptica')
+# 2 — только текст, без медиа
+page(2, f'''{fit('Видеоуроки',908,170)}
+    <div class="abs it" style="left:86px;top:480px;width:850px;font-size:60px;line-height:1.1">Смотрите уроки в удобное время и идите в своём темпе.</div>
+    <div class="abs" style="left:86px;top:760px;width:640px;font-size:30px;line-height:1.42">Каждый урок разбит на небольшие части, поэтому не нужно выделять на него целый день.</div>
+    <div class="abs mrow" style="left:86px;top:1250px;width:908px"><span>короткие модули</span><span>своё расписание</span><span class="rd">в удобное время</span></div>''', 'cream')
+# 3 — кураторы, минимализм
+page(3, '''    <div class="abs micro" style="left:86px;top:150px">кто ведёт курс</div>
+''' + ph(0,200,538,720,'фото Алины','03-a.jpg','50% 25%') + '\n' + ph(542,200,538,720,'фото Ани','03-b.jpg','50% 25%') + '''
+    <div class="abs" style="left:86px;top:960px;width:420px"><div class="light" style="font-size:58px;line-height:1">Алина</div>
+      <div style="font-size:22px;line-height:1.45;margin-top:18px">куратор курса<br>креативный директор promptica<br>AI-креатор</div></div>
+    <div class="abs" style="left:582px;top:960px;width:420px"><div class="light" style="font-size:58px;line-height:1">Аня</div>
+      <div style="font-size:22px;line-height:1.45;margin-top:18px">8 лет в дизайне<br>брендинг и визуал для соцсетей<br>ведущий креатор</div></div>''')
+# 4 — панель + фото вылетом, тонкая цифра
 items = ['разбор работ участников на курсе', 'сборка портфолио', 'проверка домашних заданий с комментариями', 'ответы кураторов на вопросы по ходу курса', 'закрытый чат участников']
-rows = ''.join(f'<div class="row" style="padding:30px 0;font-size:34px">{cb}<span class="t">{t}</span></div>' for t in items)
-page(4, f'''{fit('2 месяца',650,200)}
-{mrow('[срок курса]','с обратной связью',340)}
-    <div class="abs lbl br" style="left:86px;top:470px">[что входит]</div>
-    <div class="abs" style="left:86px;top:510px;width:908px">{rows}</div>''')
-# 5 модули
+li = ''.join(f'<div style="padding:13px 0;border-top:1px solid rgba(13,13,13,.25);font-size:21px;line-height:1.35">{t}</div>' for t in items)
+page(4, f'''    <div class="abs" style="left:0;top:0;width:430px;height:1350px;background:#fff7e6"></div>
+{ph(430,0,650,1350,'фото или видео для слайда','04-a.jpg','50% 40%')}
+    <div class="abs thin" style="left:70px;top:150px;font-size:340px;line-height:.9">2</div>
+    <div class="abs it" style="left:86px;top:500px;font-size:60px;line-height:1">месяца</div>
+    <div class="abs" style="left:86px;top:578px;font-size:22px">с обратной связью</div>
+    <div class="abs micro rd" style="left:86px;top:690px">что входит</div>
+    <div class="abs" style="left:86px;top:726px;width:300px">{li}<div style="border-top:1px solid rgba(13,13,13,.25)"></div></div>''', meta_style=' style="left:86px;right:auto;top:auto;bottom:70px;text-align:left"')
+# 5 — модули как оглавление
 mods = [('01', 'Инструменты и основы', '', False),
         ('02', 'Идея и первые кадры', 'поиск своего стиля: от референса до готовой фотосессии', False),
         ('03', 'Исправляем недочёты', 'Убираем артефакты, «пластиковую» кожу и другое. Кадр выглядит как настоящая фотография.', False),
         ('04', 'Вся фотосессия целиком', 'Планируем съёмку по кадрам, меняем локации и образы, отбираем лучшее и собираем серию.', False),
         ('05', 'Как монетизировать навык и получать заказы', 'Упаковываем навык в услугу', True)]
-mr = ''.join(f'<div class="row" style="padding:26px 0"><span class="n">[{n}]</span><span class="t" style="font-size:32px{";color:#930400" if red else ""}"><b style="font-weight:400">{t}</b>{f"<small style='font-size:22px;margin-top:8px'>{d}</small>" if d else ""}</span></div>' for n, t, d, red in mods)
-page(5, f'''{fit('5 модулей',908,200)}
-{mrow('[программа]','видеоуроки + домашние задания',340)}
-    <div class="abs" style="left:86px;top:430px;width:908px">{mr}</div>''')
-# 6 коммерческий модуль
-pts = ['как упаковать фотосессию в услугу', 'пакеты и цены', 'портфолио, которое продаёт']
-pr = ''.join(f'<div class="row" style="padding:26px 0;font-size:34px"><span class="n">[{i:02d}]</span><span class="t">{t}</span></div>' for i, t in enumerate(pts, start=1))
-page(6, f'''{fit('Из навыка<br>в заказы',908,200)}
-{mrow('[коммерческий модуль]','модуль 05',500)}
-    <div class="abs" style="left:86px;top:600px;width:908px">{pr}</div>''')
-# 7 что останется
-page(7, f'''{fit('Гайды — навсегда',908,200)}
-{mrow('[что останется с вами]','после курса',300)}
-    <div class="abs" style="left:86px;top:420px;width:908px">
-      <div class="row" style="padding:26px 0;font-size:32px"><span class="t">Забираете гайды и пользуетесь ими после курса.</span></div>
-      <div class="row" style="padding:26px 0;font-size:32px"><span class="t">После каждого урока: домашнее задание.</span></div>
-    </div>
-    <div class="abs" style="left:86px;top:800px;width:908px;background:#fff7e6;padding:54px 54px 58px">
-      <div class="lbl br">[бонус]</div>
-      <div class="name" style="font-size:52px;line-height:1.08;margin-top:20px">Урок по оформлению дизайна постов и рилс</div>
-    </div>''')
-# 8 CTA
-page(8, f'''{fit('Запись<br>на курс',908,240,'#fff7e6')}
-{mrow('курс [нейросети с нуля]','2 месяца',560,'#fff7e6')}
-    <div class="abs hair" style="left:86px;top:640px;width:908px;color:#fff7e6;opacity:.4"></div>
-    <div class="abs" style="left:86px;top:690px;width:780px;font-size:32px;line-height:1.4;color:#fff7e6">[как записаться: слово в комментариях / ссылка в шапке профиля / анкета]</div>''', 'red', 'logo_cream.png', ' style="color:#fff7e6"')
+rows = ''.join(f'<div style="display:flex;gap:30px;align-items:flex-start;padding:26px 0;border-top:1px solid rgba(13,13,13,.22)"><div class="thin{" rd" if r else ""}" style="font-size:64px;width:110px;flex:none">{n}</div><div style="flex:1;padding-top:6px"><div style="font-size:31px;line-height:1.22{";color:#930400" if r else ""}">{t}</div>{f"<div style=\'font-size:21px;line-height:1.4;opacity:.7;margin-top:8px\'>{d}</div>" if d else ""}</div></div>' for n, t, d, r in mods)
+page(5, f'''{fit('5 модулей',620,170)}
+    <div class="abs" style="left:86px;top:400px;width:908px">{rows}</div>''')
+# 6 — красный, цитата с фото внутри строки (Aspect)
+page(6, '''    <div class="abs micro" style="left:86px;top:160px;opacity:.8">коммерческий модуль · модуль 5</div>
+    <div class="abs it" style="left:86px;top:240px;font-size:118px;line-height:1">Из навыка <span style="display:inline-block;width:250px;height:150px;vertical-align:-18px;background:rgba(255,247,230,.22);margin:0 8px;position:relative;overflow:hidden"><img src="img/06-a.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" onerror="this.remove()"></span><br>в заказы</div>
+    <div class="abs" style="left:86px;top:720px;width:908px">
+      <div style="padding:26px 0;border-top:1px solid rgba(255,247,230,.35);font-size:36px">как упаковать фотосессию в услугу</div>
+      <div style="padding:26px 0;border-top:1px solid rgba(255,247,230,.35);font-size:36px">пакеты и цены</div>
+      <div style="padding:26px 0;border-top:1px solid rgba(255,247,230,.35);border-bottom:1px solid rgba(255,247,230,.35);font-size:36px">портфолио, которое продаёт</div>
+    </div>''', 'red', 'logo_cream.png', ' style="color:#fff7e6"')
+# 7 — блок цвета + фото снизу (Pretend)
+page(7, '''    <div class="abs" style="left:0;top:0;width:1080px;height:900px;background:#930400"></div>
+''' + ph(0,900,1080,450,'фото или видео для слайда','07-a.jpg','50% 40%') + '''
+    <div class="abs light" style="left:86px;top:190px;font-size:92px;line-height:1;color:#fff7e6">Гайды —<br>навсегда</div>
+    <div class="abs" style="left:86px;top:470px;width:700px;font-size:30px;line-height:1.4;color:#fff7e6">Забираете гайды и пользуетесь ими после курса.<br>После каждого урока: домашнее задание.</div>
+    <div class="abs it" style="left:86px;top:690px;width:800px;font-size:50px;line-height:1.1;color:#fff7e6">Бонус: урок по оформлению дизайна постов и рилс</div>
+    <div class="abs mrow" style="left:86px;top:848px;width:908px;color:#fff7e6"><span>гайды</span><span>домашнее задание</span><span>бонус-урок</span></div>''', '', 'logo_cream.png', ' style="color:#fff7e6"')
+# 8 — запись
+page(8, f'''{fit('Запись<br>на курс',640,260,86,'thin','line-height:.95')}
+    <div class="abs mrow" style="left:86px;top:640px;width:908px"><span>курс «нейросети с нуля»</span><span>2 месяца</span></div>
+    <div class="hair" style="left:86px;top:690px;width:908px"></div>
+    <div class="abs it rd" style="left:86px;top:740px;width:800px;font-size:38px;line-height:1.2">[как записаться: слово в комментариях / ссылка в шапке профиля / анкета]</div>''', 'cream')
 print('слайдов:', TOTAL)

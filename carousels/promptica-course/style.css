@@ -1,51 +1,27 @@
-/* promptica — «Почему нейросеть меняет ваш продукт». Редакционная вёрстка (по референсам Darcy Studio / Lena Guseva):
-   слово на всю ширину, фото вылетом за край, микротекст, подписи в скобках. Цвета: #0D0D0D, #FFFFFF, #930400, #fff7e6 */
-@font-face { font-family: 'HN Black Ext'; src: url('../../assets/fonts/HelveticaNeue-BlackExtObl.otf'); }
-@font-face { font-family: 'Helios Ext'; src: url('../../assets/fonts/HeliosExtC.ttf'); }
-@font-face { font-family: 'Playfair'; src: url('../../assets/fonts/PlayfairDisplay-Italic.ttf'); font-style: italic; font-weight: 400 900; }
-:root { --black: #0D0D0D; --red: #930400; --cream: #fff7e6; --m: 86px; }
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html, body { width: 1080px; height: 1350px; overflow: hidden; }
-.slide { position: relative; width: 1080px; height: 1350px; overflow: hidden; background: #FFFFFF; color: var(--black); font-family: 'Helios Ext', sans-serif; }
-.slide.red { background: var(--red); color: var(--cream); }
-.abs { position: absolute; }
-
-/* рамка серии */
-.hd { position: absolute; top: var(--m); left: var(--m); z-index: 8; }
-.hd img { height: 34px; display: block; }
-.mt { position: absolute; top: var(--m); right: var(--m); text-align: right; font-size: 19px; line-height: 1.3; z-index: 8; }
-.hair { position: absolute; left: var(--m); width: 640px; height: 1px; background: currentColor; opacity: .5; z-index: 8; }
-
-/* слово на всю ширину (подгоняется скриптом data-fit) */
-.fit { display: inline-block; white-space: nowrap; font-family: 'HN Black Ext', sans-serif; text-transform: uppercase; line-height: .82; letter-spacing: -0.035em; }
-.mrow { display: flex; justify-content: space-between; font-size: 17px; letter-spacing: .1em; text-transform: uppercase; }
-.br { color: var(--red); letter-spacing: .06em; font-size: 20px; }
-.red .br { color: var(--cream); opacity: .85; }
-
-/* фото: вылет за край, без рамок */
-.ph { position: absolute; background: #ebebeb; overflow: hidden; }
-.ph img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.ph .hn { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; text-align: center; padding: 20px; font-size: 15px; letter-spacing: .1em; text-transform: uppercase; line-height: 1.7; color: rgba(13,13,13,.42); }
-.topshade { position: absolute; left: 0; top: 0; width: 455px; height: 190px; background: linear-gradient(180deg, rgba(13,13,13,.5), rgba(13,13,13,0)); z-index: 7; }
-
-/* блок причины */
-.rb .tt { font-family: 'HN Black Ext', sans-serif; text-transform: uppercase; line-height: 1.04; letter-spacing: -0.01em; margin: 12px 0 16px; }
-.rb p { font-size: 20px; line-height: 1.42; text-align: justify; margin-bottom: 18px; }
-.rb .ck { padding-top: 14px; border-top: 1px solid rgba(13,13,13,.3); }
-.rb .ck .br { display: block; font-size: 16px; margin-bottom: 6px; }
-.rb .ck i { font-family: 'Playfair', serif; font-size: 23px; line-height: 1.2; color: var(--red); }
-.rb.right .tt { text-align: right; }
-.rb.right .br { text-align: right; display: block; }
-
-.cb { position: relative; display: inline-block; width: 26px; height: 26px; border: 2px solid var(--red); background: var(--red); flex: none; }
-.cb::after { content: ""; position: absolute; left: 7px; top: 1px; width: 8px; height: 15px; border: solid #fff; border-width: 0 3px 3px 0; transform: rotate(40deg); }
-
-.grain { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; mix-blend-mode: multiply; opacity: .18; z-index: 20; }
-.lbl { font-size:17px; letter-spacing:.12em; text-transform:uppercase; }
-.name { font-family:'HN Black Ext',sans-serif; text-transform:uppercase; line-height:1; letter-spacing:-0.02em; }
-.row { display:flex; justify-content:space-between; align-items:baseline; gap:24px; padding:22px 0; border-top:1px solid rgba(13,13,13,.25); font-size:30px; line-height:1.3; }
-.row:last-child { border-bottom:1px solid rgba(13,13,13,.25); }
-.row .n { font-size:18px; letter-spacing:.06em; color:var(--red); flex:none; width:70px; }
-.row .t { flex:1; } .row small { display:block; font-size:19px; opacity:.65; margin-top:6px; }
-.ghost { opacity:.35; }
-.red .row { border-color:rgba(255,247,230,.3); } .red .row:last-child { border-color:rgba(255,247,230,.3); }
+/* promptica — «Нейросети с нуля». Стиль по референсам Pretend / Carhartt / Aspect: блоки цвета, фото вылетом, тонкие цифры, текст без капса.
+   Цвета: #0D0D0D, #FFFFFF, #930400, #fff7e6. Шрифты: Vela Sans (тонкий), Helios Ext (текст), Playfair Italic (акценты). */
+@font-face { font-family:'Vela'; src:url('../../assets/fonts/VelaSans-ExtraLight.ttf'); font-weight:200; }
+@font-face { font-family:'Vela'; src:url('../../assets/fonts/VelaSans-Light.ttf'); font-weight:300; }
+@font-face { font-family:'Vela'; src:url('../../assets/fonts/VelaSans-Regular.ttf'); font-weight:400; }
+@font-face { font-family:'Helios Ext'; src:url('../../assets/fonts/HeliosExtC.ttf'); }
+@font-face { font-family:'Playfair'; src:url('../../assets/fonts/PlayfairDisplay-Italic.ttf'); font-style:italic; font-weight:400 900; }
+:root { --black:#0D0D0D; --red:#930400; --cream:#fff7e6; --m:86px; }
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { width:1080px; height:1350px; overflow:hidden; }
+.slide { position:relative; width:1080px; height:1350px; overflow:hidden; background:#fff; color:var(--black); font-family:'Helios Ext',sans-serif; }
+.slide.cream { background:var(--cream); } .slide.red { background:var(--red); color:var(--cream); }
+.abs { position:absolute; }
+.hd { position:absolute; top:var(--m); left:var(--m); z-index:8; } .hd img { height:34px; display:block; }
+.mt { position:absolute; top:var(--m); right:var(--m); text-align:right; font-size:19px; line-height:1.3; z-index:8; }
+.thin { font-family:'Vela',sans-serif; font-weight:200; letter-spacing:-0.03em; line-height:.95; white-space:nowrap; }
+.light { font-family:'Vela',sans-serif; font-weight:300; letter-spacing:-0.02em; }
+.it { font-family:'Playfair',serif; font-style:italic; letter-spacing:-0.005em; }
+.micro { font-size:18px; letter-spacing:.03em; }
+.mrow { display:flex; justify-content:space-between; font-size:18px; letter-spacing:.03em; }
+.ph { position:absolute; background:#e4ddd0; overflow:hidden; }
+.ph img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+.ph .hn { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; text-align:center; padding:20px; font-size:16px; letter-spacing:.04em; line-height:1.6; color:rgba(13,13,13,.4); }
+.red .ph { background:rgba(255,247,230,.22); } .red .ph .hn { color:rgba(255,247,230,.7); }
+.hair { position:absolute; height:1px; background:currentColor; opacity:.28; }
+.rd { color:var(--red); }
+.grain { position:absolute; inset:0; width:100%; height:100%; pointer-events:none; mix-blend-mode:multiply; opacity:.16; z-index:20; }
