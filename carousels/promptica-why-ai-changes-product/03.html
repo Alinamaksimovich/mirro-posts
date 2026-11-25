@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Почему нейросеть меняет продукт — 03</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="slide ">
+    <div class="abs" style="left:86px;top:215px;width:908px">
+      <div style="display:flex;align-items:center;font-family:'HN Black Ext',sans-serif;text-transform:uppercase;font-size:62px;line-height:1.1;letter-spacing:-0.02em;white-space:nowrap"><span>Продукт плохо</span><span class="ph" style="position:relative;flex:1;height:58px;margin-left:16px;min-width:90px" ><span class="hn" style="font-size:11px;padding:4px">фото</span><img src="img/03-s1.jpg" alt="" onerror="this.remove()"></span></div>
+      <div style="display:flex;align-items:center;font-family:'HN Black Ext',sans-serif;text-transform:uppercase;font-size:62px;line-height:1.1;letter-spacing:-0.02em;white-space:nowrap"><span class="ph" style="position:relative;flex:1;height:58px;margin-right:16px;min-width:90px"><span class="hn" style="font-size:11px;padding:4px">фото</span><img src="img/03-s2.jpg" alt="" onerror="this.remove()"></span><span>отделён от</span></div>
+      <div style="display:flex;align-items:center;font-family:'HN Black Ext',sans-serif;text-transform:uppercase;font-size:62px;line-height:1.1;letter-spacing:-0.02em;white-space:nowrap"><span>фона</span><span class="ph" style="position:relative;flex:1;height:58px;margin-left:16px;min-width:90px" ><span class="hn" style="font-size:11px;padding:4px">фото</span><img src="img/03-s3.jpg" alt="" onerror="this.remove()"></span></div>
+    </div>
+    <div class="abs rb " style="left:86px;top:560px;width:420px"><div class="br">[03]</div><p style="margin-top:14px">Если края продукта сливаются с фоном, нейросеть не понимает, где кончается упаковка, и дорисовывает границу сама.</p><div class="ck"><span class="br">[проверьте]</span><i>Контур чистый, контраст с фоном есть, на краях нет бликов.</i></div></div>
+    <div class="ph" style="left:560px;top:560px;width:520px;height:380px"><div class="hn">фото вылетом справа:<br>продукт сливается с фоном</div><img src="img/03-a.jpg" alt="" onerror="this.remove()"></div>
+    <div class="ph" style="left:0px;top:980px;width:420px;height:330px"><div class="hn">фото вылетом слева:<br>поплывший текст на упаковке</div><img src="img/03-b.jpg" alt="" onerror="this.remove()"></div>
+    <div class="abs rb right" style="left:480px;top:980px;width:514px"><div class="br">[04]</div><div class="tt" style="font-size:30px">Генерация перерисовывает текст</div><p>Надписи и логотипы для модели просто картинка, а не слова: буквы могут поплыть или превратиться в похожие знаки.</p><div class="ck"><span class="br">[проверьте]</span><i>Мелкий текст на упаковке сверен с оригиналом.</i></div></div>
+    <div class="hd"><img src="../../assets/logo_black.png" alt="promptica"></div>
+    <div class="mt">чек-лист перед генерацией<br>03 / 05</div>
+    <svg class="grain"><filter id="g"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="3" seed="3" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100%" height="100%" filter="url(#g)"/></svg>
+  </div>
+<script>
+Promise.all([document.fonts.load("100px 'HN Black Ext'"), document.fonts.load("20px 'Helios Ext'"), document.fonts.load("20px 'Playfair'"), document.fonts.ready]).then(() => {
+  document.querySelectorAll('[data-fit]').forEach(el => { el.style.fontSize = '100px'; el.style.fontSize = (100 * parseFloat(el.dataset.fit) / el.getBoundingClientRect().width) + 'px'; });
+});
+</script>
+</body>
+</html>
