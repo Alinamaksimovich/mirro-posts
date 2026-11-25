@@ -49,7 +49,7 @@ page(2, f'''    <div class="abs" style="left:0;top:0;width:1080px;height:675px;b
     <div class="abs mrow" style="left:86px;top:615px;width:908px;color:#fff7e6"><span>короткие модули</span><span>своё расписание</span><span>в удобное время</span></div>''', '', 'logo_cream.png', ' style="color:#fff7e6"')
 # 3 — кураторы, минимализм
 page(3, '''    <div class="abs micro" style="left:86px;top:150px">кто ведёт курс</div>
-''' + ph(0,200,538,720,'фото Алины','03-a.jpg','50% 25%') + '\n' + ph(542,200,538,720,'фото Ани','03-b.jpg','50% 25%') + '''
+''' + ph(0,200,1080,715,'общее фото кураторов','03-a.jpg','50% 40%') + '''
     <div class="abs" style="left:86px;top:960px;width:420px"><div class="light" style="font-size:58px;line-height:1">Алина</div>
       <div style="font-size:22px;line-height:1.45;margin-top:18px">куратор курса<br>креативный директор promptica<br>AI-креатор</div></div>
     <div class="abs" style="right:86px;top:960px;width:420px;text-align:right"><div class="light" data-opt="0" style="font-size:58px;line-height:1">Аня</div>
