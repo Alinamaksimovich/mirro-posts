@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Отзывы (сторис) — чистый отзыв</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-size="1080x1920">
+  <div class="slide red">
+    <div class="abs" style="left:78px;top:340px;font-family:'HN Black Ext',sans-serif;font-size:300px;line-height:.8;color:var(--cream)">“</div>
+    <div class="abs quote" data-box="700" data-max="62" style="left:86px;top:580px;width:908px;height:700px;overflow:hidden">Текст отзыва ученика. Вставьте 2–4 предложения: с чем пришёл на курс, что получилось и чем помогло обучение. Чем честнее и конкретнее, тем лучше читается.</div>
+    <div class="abs hair" style="left:86px;top:1340px;width:908px"></div>
+    <div class="abs" style="left:86px;top:1376px;width:908px;display:flex;justify-content:space-between;align-items:flex-end">
+      <div><div class="name">[Имя ученика]</div><div class="res" style="margin-top:12px"><span class="br">[</span>результат ученика<span class="br">]</span></div></div>
+      <div class="lbl" style="opacity:.65;text-align:right">курс promptica</div>
+    </div>
+    <div class="hd"><img src="../../assets/logo_cream.png" alt="promptica"></div>
+    <div class="mt" style="color:#fff7e6">отзыв ученика<br>кейсы учеников</div>
+    <svg class="grain"><filter id="g"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="3" seed="4" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100%" height="100%" filter="url(#g)"/></svg>
+  </div>
+<script>
+Promise.all([document.fonts.load("30px 'Playfair'"), document.fonts.load("30px 'HN Black Ext'"), document.fonts.ready]).then(() => {
+  document.querySelectorAll('[data-box]').forEach(el => {
+    const max = parseFloat(el.dataset.max || 54), min = 22, h = parseFloat(el.dataset.box);
+    let fs = max; el.style.fontSize = fs + 'px';
+    while (el.scrollHeight > h && fs > min) { fs -= 1; el.style.fontSize = fs + 'px'; }
+  });
+});
+</script>
+</body>
+</html>

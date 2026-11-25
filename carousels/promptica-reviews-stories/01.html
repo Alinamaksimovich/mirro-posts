@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Отзывы (сторис) — портрет и отзыв</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-size="1080x1920">
+  <div class="slide ">
+    <div class="ph" style="left:0;top:0;width:430px;height:1920px"><div class="hn">портрет ученика<br>вылетом слева,<br>сверху и снизу</div><img src="img/01-a.jpg" alt="" onerror="this.remove()"></div>
+    <div class="abs lbl br" style="left:500px;top:420px">[отзыв]</div>
+    <div class="abs quote" data-box="800" data-max="48" style="left:500px;top:470px;width:494px;height:800px;overflow:hidden">«Текст отзыва ученика. Вставьте 2–4 предложения: с чем пришёл на курс, что получилось и чем помогло обучение. Чем честнее и конкретнее, тем лучше читается.»</div>
+    <div class="abs hair" style="left:500px;top:1330px;width:494px"></div>
+    <div class="abs name" style="left:500px;top:1364px;width:494px">[Имя ученика]</div>
+    <div class="abs res" style="left:500px;top:1440px;width:494px"><span class="br">[</span>результат: например, первые заказы на AI-контент<span class="br">]</span></div>
+    <div class="hd" style="left:500px"><img src="../../assets/logo_black.png" alt="promptica"></div>
+    <div class="mt" style="top:340px;display:none">отзыв ученика<br>кейсы учеников</div>
+    <svg class="grain"><filter id="g"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="3" seed="1" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100%" height="100%" filter="url(#g)"/></svg>
+  </div>
+<script>
+Promise.all([document.fonts.load("30px 'Playfair'"), document.fonts.load("30px 'HN Black Ext'"), document.fonts.ready]).then(() => {
+  document.querySelectorAll('[data-box]').forEach(el => {
+    const max = parseFloat(el.dataset.max || 54), min = 22, h = parseFloat(el.dataset.box);
+    let fs = max; el.style.fontSize = fs + 'px';
+    while (el.scrollHeight > h && fs > min) { fs -= 1; el.style.fontSize = fs + 'px'; }
+  });
+});
+</script>
+</body>
+</html>
