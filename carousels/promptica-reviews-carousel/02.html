@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Отзывы учеников — 02</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-size="1080x1440">
+  <div class="slide ">
+    <div class="ph" style="left:0px;top:170px;width:538px;height:600px"><div class="hn">работа ученицы</div><img src="img/02-a.jpg" alt="" style="object-position:50% 40%" onerror="this.remove()"></div>
+    <div class="ph" style="left:542px;top:170px;width:538px;height:600px"><div class="hn">на модели</div><img src="img/02-b.jpg" alt="" style="object-position:50% 26%" onerror="this.remove()"></div>
+    <div class="abs lbl br" style="left:86px;top:812px">[01] кейс</div>
+    <div class="abs name" style="left:86px;top:852px;width:908px;font-size:40px;line-height:1.05">ИИ-фотосессия<br>для бренда украшений</div>
+    <div class="abs mrow" style="left:86px;top:974px;width:908px"><span class="br">[ученица Ангелина]</span><span style="opacity:.7">пришла, ранее не работая с ИИ</span></div>
+    <div class="abs" style="left:86px;top:1040px;width:908px"><img src="img/02-chat.png" alt="" style="width:908px;display:block"></div>
+    <div class="hd"><img src="../../assets/logo_black.png" alt="promptica"></div>
+    <div class="mt">отзывы учеников<br>02 / 03</div>
+    <svg class="grain"><filter id="g"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="3" seed="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100%" height="100%" filter="url(#g)"/></svg>
+  </div>
+<script>
+Promise.all([document.fonts.load("100px 'HN Black Ext'"), document.fonts.load("30px 'Playfair'"), document.fonts.load("20px 'Helios Ext'"), document.fonts.ready]).then(() => {
+  document.querySelectorAll('[data-fit]').forEach(el => { el.style.fontSize = '100px'; el.style.fontSize = (100 * parseFloat(el.dataset.fit) / el.getBoundingClientRect().width) + 'px'; });
+  document.querySelectorAll('[data-box]').forEach(el => { const max = parseFloat(el.dataset.max || 46), h = parseFloat(el.dataset.box); let fs = max; el.style.fontSize = fs + 'px'; while (el.scrollHeight > h && fs > 22) { fs -= 1; el.style.fontSize = fs + 'px'; } });
+});
+</script>
+</body>
+</html>

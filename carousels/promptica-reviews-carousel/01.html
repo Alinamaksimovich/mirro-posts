@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Отзывы учеников — 01</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-size="1080x1440">
+  <div class="slide ">
+    <div class="ph" style="left:0;top:0;width:1080px;height:900px"><div class="hn">обложка: крупный план</div><img src="img/01-a.jpg" alt="" style="object-position:50% 30%" onerror="this.remove()"></div>
+    <div class="vert" style="right:44px;top:560px">promptica.digital agency</div>
+    <div class="abs" style="left:86px;top:960px;width:908px"><div class="fit" data-fit="908">Отзывы<br>учеников</div></div>
+    <div class="abs mrow" style="left:86px;top:1232px;width:908px"><span>курс <b class="br" style="font-weight:400">[нейросети с нуля]</b></span><span>01 / 03 · листай →</span></div>
+    <svg class="grain"><filter id="g"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="3" seed="1" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100%" height="100%" filter="url(#g)"/></svg>
+  </div>
+<script>
+Promise.all([document.fonts.load("100px 'HN Black Ext'"), document.fonts.load("30px 'Playfair'"), document.fonts.load("20px 'Helios Ext'"), document.fonts.ready]).then(() => {
+  document.querySelectorAll('[data-fit]').forEach(el => { el.style.fontSize = '100px'; el.style.fontSize = (100 * parseFloat(el.dataset.fit) / el.getBoundingClientRect().width) + 'px'; });
+  document.querySelectorAll('[data-box]').forEach(el => { const max = parseFloat(el.dataset.max || 46), h = parseFloat(el.dataset.box); let fs = max; el.style.fontSize = fs + 'px'; while (el.scrollHeight > h && fs > 22) { fs -= 1; el.style.fontSize = fs + 'px'; } });
+});
+</script>
+</body>
+</html>
