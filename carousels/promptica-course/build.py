@@ -84,7 +84,7 @@ page(6, '''    <div class="abs" style="left:0;top:0;width:1080px;height:900px;ba
     <div class="abs mrow" style="left:86px;top:848px;width:908px;color:#fff7e6"><span>гайды</span><span>домашнее задание</span><span>бонус-урок</span></div>''', '', 'logo_cream.png', ' style="color:#fff7e6"')
 # 7 — запись: текст сверху, фото вылетом снизу (белый фон — фото переходит без шва)
 page(7, f'''{fit('Запись на курс',908,150,86,'thin')}
-    <div class="abs it" style="left:86px;top:330px;width:900px;font-size:48px;line-height:1.1">Пишите слово <span class="rd">«курс»</span>, и мы пришлём подробную программу курса.</div>
-    <div class="abs mrow" style="left:86px;top:520px;width:908px"><span>курс «нейросети с нуля»</span><span>2 месяца</span></div>
-{ph(0,580,1080,770,'фото на нижнюю часть слайда','07-a.jpg','50% 40%',';background:#fff;-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 40px);mask-image:linear-gradient(180deg,transparent 0,#000 40px)')}''')
+    <div class="abs it" style="left:86px;top:325px;width:908px;font-size:41px;line-height:1.14">Пишите слово <span class="rd">«курс»</span> в комментариях, и мы пришлём подробную программу курса.</div>
+    <div class="abs mrow" style="left:86px;top:470px;width:908px"><span>курс «нейросети с нуля»</span><span>2 месяца</span></div>
+{ph(238,540,604,810,'фото на нижнюю часть слайда','07-a.jpg','50% 50%',';background:#fff;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 50px,#000 calc(100% - 50px),transparent 100%),linear-gradient(180deg,transparent 0,#000 50px);-webkit-mask-composite:source-in;mask-composite:intersect')}''')
 print('слайдов:', TOTAL)
