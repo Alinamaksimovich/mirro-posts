@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Отзывы — результат и отзыв</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="slide ">
+    <div class="ph" style="left:0;top:170px;width:1080px;height:640px"><div class="hn">работа ученика<br>(результат, кадр, карточка) вылетом на всю ширину</div><img src="img/02-a.jpg" alt="" onerror="this.remove()"></div>
+    <div class="abs" style="left:86px;top:850px;width:300px">
+      <div class="lbl br" style="margin-bottom:14px">[ученик]</div>
+      <div class="name">[Имя ученика]</div>
+      <div class="res" style="margin-top:16px"><span class="br">[</span>результат: например, первые заказы<span class="br">]</span></div>
+    </div>
+    <div class="abs lbl br" style="left:450px;top:850px">[отзыв]</div>
+    <div class="abs quote" data-box="380" data-max="38" style="left:450px;top:890px;width:544px;height:380px;overflow:hidden">«Текст отзыва ученика. Вставьте 2–4 предложения: с чем пришёл на курс, что получилось и чем помогло обучение. Чем честнее и конкретнее, тем лучше читается.»</div>
+    <div class="hd"><img src="../../assets/logo_black.png" alt="promptica"></div>
+    <div class="mt">отзыв ученика<br>кейсы учеников</div>
+    <svg class="grain"><filter id="g"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="3" seed="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100%" height="100%" filter="url(#g)"/></svg>
+  </div>
+<script>
+// подгоняет размер текста отзыва под высоту блока: от max вниз, пока не влезет
+Promise.all([document.fonts.load("30px 'Playfair'"), document.fonts.load("30px 'HN Black Ext'"), document.fonts.ready]).then(() => {
+  document.querySelectorAll('[data-box]').forEach(el => {
+    const max = parseFloat(el.dataset.max || 54), min = 20, h = parseFloat(el.dataset.box);
+    let fs = max; el.style.fontSize = fs + 'px';
+    while (el.scrollHeight > h && fs > min) { fs -= 1; el.style.fontSize = fs + 'px'; }
+  });
+});
+</script>
+</body>
+</html>

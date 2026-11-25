@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Отзывы — портрет и отзыв</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="slide ">
+    <div class="ph" style="left:0;top:170px;width:480px;height:1180px"><div class="hn">портрет ученика<br>вылетом слева и вниз</div><img src="img/01-a.jpg" alt="" onerror="this.remove()"></div>
+    <div class="abs lbl br" style="left:546px;top:250px">[отзыв]</div>
+    <div class="abs quote" data-box="640" data-max="46" style="left:546px;top:300px;width:448px;height:640px;overflow:hidden">«Текст отзыва ученика. Вставьте 2–4 предложения: с чем пришёл на курс, что получилось и чем помогло обучение. Чем честнее и конкретнее, тем лучше читается.»</div>
+    <div class="abs hair" style="left:546px;top:1000px;width:448px"></div>
+    <div class="abs name" style="left:546px;top:1034px;width:448px">[Имя ученика]</div>
+    <div class="abs res" style="left:546px;top:1110px;width:448px"><span class="br">[</span>результат: например, первые заказы на AI-контент<span class="br">]</span></div>
+    <div class="abs lbl" style="left:546px;top:1270px;width:448px;opacity:.6">курс promptica</div>
+    <div class="hd"><img src="../../assets/logo_black.png" alt="promptica"></div>
+    <div class="mt">отзыв ученика<br>кейсы учеников</div>
+    <svg class="grain"><filter id="g"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="3" seed="1" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100%" height="100%" filter="url(#g)"/></svg>
+  </div>
+<script>
+// подгоняет размер текста отзыва под высоту блока: от max вниз, пока не влезет
+Promise.all([document.fonts.load("30px 'Playfair'"), document.fonts.load("30px 'HN Black Ext'"), document.fonts.ready]).then(() => {
+  document.querySelectorAll('[data-box]').forEach(el => {
+    const max = parseFloat(el.dataset.max || 54), min = 20, h = parseFloat(el.dataset.box);
+    let fs = max; el.style.fontSize = fs + 'px';
+    while (el.scrollHeight > h && fs > min) { fs -= 1; el.style.fontSize = fs + 'px'; }
+  });
+});
+</script>
+</body>
+</html>
