@@ -10,7 +10,7 @@
     <div class="abs" style="left:86px;top:150px"><div class="thin" data-fit="908" style="">Запись на курс</div></div>
     <div class="abs it" style="left:86px;top:325px;width:908px;font-size:41px;line-height:1.14">Пишите слово <span class="rd">«курс»</span> в комментариях, и мы пришлём подробную программу курса.</div>
     <div class="abs mrow" style="left:86px;top:470px;width:908px"><span>курс «нейросети с нуля»</span><span>2 месяца</span></div>
-    <div class="ph" style="left:238px;top:540px;width:604px;height:810px;background:#fff;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 50px,#000 calc(100% - 50px),transparent 100%),linear-gradient(180deg,transparent 0,#000 50px);-webkit-mask-composite:source-in;mask-composite:intersect"><div class="hn">фото на нижнюю часть слайда</div><img src="img/07-a.jpg" alt="" style="object-position:50% 50%" onerror="this.remove()"></div>
+    <div class="ph" style="left:0px;top:540px;width:1080px;height:810px;background:#fff;-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 50px);mask-image:linear-gradient(180deg,transparent 0,#000 50px)"><div class="hn">фото на нижнюю часть слайда</div><img src="img/07-a.jpg" alt="" style="object-position:50% 50%" onerror="this.remove()"></div>
     <div class="hd"><img src="../../assets/logo_black.png" alt="promptica"></div>
     <div class="mt">нейросети с нуля<br>07 / 07</div>
     <svg class="grain"><filter id="g"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="3" seed="7" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100%" height="100%" filter="url(#g)"/></svg>
@@ -18,6 +18,8 @@
 <script>
 Promise.all([document.fonts.load("200 100px 'Vela'"), document.fonts.load("20px 'Helios Ext'"), document.fonts.load("italic 30px 'Playfair'"), document.fonts.ready]).then(() => {
   document.querySelectorAll('[data-fit]').forEach(el => { el.style.fontSize = '100px'; el.style.fontSize = (100 * parseFloat(el.dataset.fit) / el.getBoundingClientRect().width) + 'px'; });
+  const ctx = document.createElement('canvas').getContext('2d');
+  document.querySelectorAll('[data-fit],.thin,.light').forEach(el => { if (el.dataset.opt === '0') return; const cs = getComputedStyle(el); ctx.font = cs.fontWeight + ' ' + cs.fontSize + ' ' + cs.fontFamily; const m = ctx.measureText((el.textContent.trim()[0] || 'A')); el.style.marginLeft = m.actualBoundingBoxLeft + 'px'; });
 });
 </script>
 </body>

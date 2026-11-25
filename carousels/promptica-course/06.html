@@ -10,9 +10,9 @@
     <div class="abs" style="left:0;top:0;width:1080px;height:900px;background:#930400"></div>
     <div class="ph" style="left:0px;top:900px;width:1080px;height:450px"><div class="hn">фото или видео для слайда</div><img src="img/06-a.jpg" alt="" style="object-position:50% 50%" onerror="this.remove()"></div>
     <div class="abs light" style="left:86px;top:190px;font-size:92px;line-height:1;color:#fff7e6">Гайды —<br>навсегда</div>
-    <div class="abs" style="left:86px;top:470px;width:700px;font-size:30px;line-height:1.4;color:#fff7e6">Забираете гайды и пользуетесь ими после курса.<br>После каждого урока: домашнее задание.</div>
-    <div class="abs it" style="left:86px;top:690px;width:800px;font-size:50px;line-height:1.1;color:#fff7e6">Бонус: урок по оформлению дизайна постов и рилс</div>
-    <div class="abs mrow" style="left:86px;top:848px;width:908px;color:#fff7e6"><span>гайды</span><span>домашнее задание</span><span>бонус-урок</span></div>
+    <div class="abs" style="left:86px;top:440px;width:860px;font-size:30px;line-height:1.4;color:#fff7e6">Забираете гайды и пользуетесь ими после курса.<br>После каждого урока: домашнее задание.</div>
+    <div class="abs" style="left:86px;top:660px;width:908px;background:#fff;border-radius:14px;padding:34px 40px 38px"><div class="it" style="font-size:44px;line-height:1.14;color:#930400">Бонус: урок по оформлению дизайна постов и рилс</div></div>
+    <div class="abs mrow" style="left:86px;top:858px;width:908px;color:#fff7e6"><span>гайды</span><span>домашнее задание</span><span>бонус-урок</span></div>
     <div class="hd"><img src="../../assets/logo_cream.png" alt="promptica"></div>
     <div class="mt" style="color:#fff7e6">нейросети с нуля<br>06 / 07</div>
     <svg class="grain"><filter id="g"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="3" seed="6" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100%" height="100%" filter="url(#g)"/></svg>
@@ -20,6 +20,8 @@
 <script>
 Promise.all([document.fonts.load("200 100px 'Vela'"), document.fonts.load("20px 'Helios Ext'"), document.fonts.load("italic 30px 'Playfair'"), document.fonts.ready]).then(() => {
   document.querySelectorAll('[data-fit]').forEach(el => { el.style.fontSize = '100px'; el.style.fontSize = (100 * parseFloat(el.dataset.fit) / el.getBoundingClientRect().width) + 'px'; });
+  const ctx = document.createElement('canvas').getContext('2d');
+  document.querySelectorAll('[data-fit],.thin,.light').forEach(el => { if (el.dataset.opt === '0') return; const cs = getComputedStyle(el); ctx.font = cs.fontWeight + ' ' + cs.fontSize + ' ' + cs.fontFamily; const m = ctx.measureText((el.textContent.trim()[0] || 'A')); el.style.marginLeft = m.actualBoundingBoxLeft + 'px'; });
 });
 </script>
 </body>

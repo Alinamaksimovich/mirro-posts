@@ -20,6 +20,8 @@
 <script>
 Promise.all([document.fonts.load("200 100px 'Vela'"), document.fonts.load("20px 'Helios Ext'"), document.fonts.load("italic 30px 'Playfair'"), document.fonts.ready]).then(() => {
   document.querySelectorAll('[data-fit]').forEach(el => { el.style.fontSize = '100px'; el.style.fontSize = (100 * parseFloat(el.dataset.fit) / el.getBoundingClientRect().width) + 'px'; });
+  const ctx = document.createElement('canvas').getContext('2d');
+  document.querySelectorAll('[data-fit],.thin,.light').forEach(el => { if (el.dataset.opt === '0') return; const cs = getComputedStyle(el); ctx.font = cs.fontWeight + ' ' + cs.fontSize + ' ' + cs.fontFamily; const m = ctx.measureText((el.textContent.trim()[0] || 'A')); el.style.marginLeft = m.actualBoundingBoxLeft + 'px'; });
 });
 </script>
 </body>
