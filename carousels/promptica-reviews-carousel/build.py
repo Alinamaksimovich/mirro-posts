@@ -2,6 +2,7 @@
 Раскладки (layout): chat — 2 фото + заголовок + скрин переписки; photo — 1–2 фото + заголовок + текст отзыва; quote — чистый отзыв.
 Слайды: 01 обложка, 02… кейсы по порядку, последний — призыв. Номера «NN / TT» считаются сами."""
 import json, os, glob, sys
+from PIL import Image
 here = os.path.dirname(os.path.abspath(__file__)); os.chdir(here)
 data = json.load(open(sys.argv[1] if len(sys.argv) > 1 else 'cases.json', encoding='utf-8'))
 cases = data['cases']; TOTAL = len(cases) + 2
@@ -35,6 +36,11 @@ def page(n, body, cls=''):
 ''')
 def ph(x, y, w, h, p, k=0):
     return f'    <div class="ph" style="left:{x}px;top:{y}px;width:{w}px;height:{h}px"><div class="hn">{p.get("hint","фото")}</div><img src="img/{p["file"]}" alt="" style="object-position:{p.get("pos","50% 40%")}" onerror="this.remove()"></div>'
+
+def chat_w(fn, top, bottom=1385, maxw=908):
+    """ширина скрина переписки: целиком в 908 px, а если не помещается по высоте — уже"""
+    w, h = Image.open('img/' + fn).size
+    return min(maxw, int((bottom - top) * w / h))
 def photos(ps, y, h):
     if len(ps) == 1: return ph(0, y, 1080, h, ps[0])
     return ph(0, y, 538, h, ps[0]) + '\n' + ph(542, y, 538, h, ps[1])
@@ -54,7 +60,7 @@ for i, c in enumerate(cases, start=1):
         c['y'] = 812
         page(n, f'''{photos(c['photos'], 170, 600)}
 {meta(i, c)}
-    <div class="abs" style="left:86px;top:1040px;width:908px"><img src="img/{c['chat']}" alt="" style="width:908px;display:block"></div>
+    <div class="abs" style="left:86px;top:1040px;width:908px"><img src="img/{c['chat']}" alt="" style="width:{chat_w(c['chat'],1040)}px;display:block"></div>
     {head(n)}''')
     elif L == 'photo':
         c['y'] = 812
@@ -69,7 +75,7 @@ for i, c in enumerate(cases, start=1):
     <div class="abs name" style="left:470px;top:216px;width:524px;font-size:40px;line-height:1.05">{c['title']}</div>
     <div class="abs" style="left:470px;top:332px;width:524px"><div class="br lbl" style="font-size:17px">[{c['name']}]</div><div class="res" style="margin-top:8px;opacity:.75">{c.get('note','')}</div></div>
     <div class="abs" style="left:470px;top:470px;width:524px">{st}</div>
-    <div class="abs" style="left:86px;top:950px;width:908px"><img src="img/{c['chat']}" alt="" style="width:908px;display:block"></div>
+    <div class="abs" style="left:86px;top:950px;width:908px"><img src="img/{c['chat']}" alt="" style="width:{chat_w(c['chat'],1040)}px;display:block"></div>
     {head(n)}
     <script>
     // покадровая подмена кадров видео (для render-video.js); в обычном экспорте остаётся постер

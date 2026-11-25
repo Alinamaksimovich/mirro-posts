@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Отзывы учеников — 07</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-size="1080x1440">
+  <div class="slide red">
+    <div class="abs" style="left:86px;top:300px;width:908px"><div class="fit" data-fit="908" style="color:var(--cream)">Хочешь<br>так же?</div></div>
+    <div class="abs mrow" style="left:86px;top:600px;width:908px;color:var(--cream)"><span>курс [нейросети с нуля]</span><span>запись открыта</span></div>
+    <div class="abs hair" style="left:86px;top:690px;width:908px;color:var(--cream)"></div>
+    <div class="abs" style="left:86px;top:730px;width:760px;font-size:34px;line-height:1.38;color:var(--cream)">Напиши слово «КУРС» в комментариях, и мы пришлём программу.</div>
+    <div class="hd"><img src="../../assets/logo_cream.png" alt="promptica"></div>
+    <div class="mt" style="color:#fff7e6">отзывы учеников<br>07 / 07</div>
+    <svg class="grain"><filter id="g"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="3" seed="7" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100%" height="100%" filter="url(#g)"/></svg>
+  </div>
+<script>
+Promise.all([document.fonts.load("100px 'HN Black Ext'"), document.fonts.load("30px 'Playfair'"), document.fonts.load("20px 'Helios Ext'"), document.fonts.ready]).then(() => {
+  document.querySelectorAll('[data-fit]').forEach(el => { el.style.fontSize = '100px'; el.style.fontSize = (100 * parseFloat(el.dataset.fit) / el.getBoundingClientRect().width) + 'px'; });
+  document.querySelectorAll('[data-box]').forEach(el => { const max = parseFloat(el.dataset.max || 46), h = parseFloat(el.dataset.box); let fs = max; el.style.fontSize = fs + 'px'; while (el.scrollHeight > h && fs > 22) { fs -= 1; el.style.fontSize = fs + 'px'; } });
+});
+</script>
+</body>
+</html>
