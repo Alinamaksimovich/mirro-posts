@@ -6,7 +6,7 @@
 :root { --black: #0D0D0D; --red: #930400; --cream: #fff7e6; --m: 86px; }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html, body { width: 1080px; height: 1350px; overflow: hidden; }
-.slide { position: relative; width: 1080px; height: 1350px; overflow: hidden; background: var(--cream); color: var(--black); font-family: 'Helios Ext', sans-serif; }
+.slide { position: relative; width: 1080px; height: 1350px; overflow: hidden; background: #FFFFFF; color: var(--black); font-family: 'Helios Ext', sans-serif; }
 .slide.red { background: var(--red); color: var(--cream); }
 .abs { position: absolute; }
 
@@ -23,7 +23,7 @@ html, body { width: 1080px; height: 1350px; overflow: hidden; }
 .red .br { color: var(--cream); opacity: .85; }
 
 /* фото: вылет за край, без рамок */
-.ph { position: absolute; background: #ddd3c0; overflow: hidden; }
+.ph { position: absolute; background: #ebebeb; overflow: hidden; }
 .ph img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .ph .hn { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; text-align: center; padding: 20px; font-size: 15px; letter-spacing: .1em; text-transform: uppercase; line-height: 1.7; color: rgba(13,13,13,.42); }
 .topshade { position: absolute; left: 0; top: 0; width: 455px; height: 190px; background: linear-gradient(180deg, rgba(13,13,13,.5), rgba(13,13,13,0)); z-index: 7; }
@@ -37,9 +37,7 @@ html, body { width: 1080px; height: 1350px; overflow: hidden; }
 .rb.right .tt { text-align: right; }
 .rb.right .br { text-align: right; display: block; }
 
-.cb { position: relative; display: inline-block; width: 26px; height: 26px; border: 2px solid var(--cream); flex: none; }
-.cb::after { content: ""; position: absolute; left: 7px; top: 1px; width: 8px; height: 15px; border: solid var(--cream); border-width: 0 3px 3px 0; transform: rotate(40deg); }
-.red .cb { background: var(--cream); }
-.red .cb::after { border-color: var(--red); }
+.cb { position: relative; display: inline-block; width: 26px; height: 26px; border: 2px solid var(--red); background: var(--red); flex: none; }
+.cb::after { content: ""; position: absolute; left: 7px; top: 1px; width: 8px; height: 15px; border: solid #fff; border-width: 0 3px 3px 0; transform: rotate(40deg); }
 
 .grain { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; mix-blend-mode: multiply; opacity: .18; z-index: 20; }
