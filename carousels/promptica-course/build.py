@@ -69,12 +69,12 @@ page(4, f'''{ph(0,0,1080,1350,'фото на весь слайд','04-a.jpg','50
       </div>
     </div>''', '', 'logo_cream.png', ' style="color:#fff7e6"')
 # 5 — модули как оглавление
-mods = [('01', 'Инструменты и основы', '', False),
+mods = [('01', 'Инструменты и основы', 'знакомимся с нейросетями и выстраиваем рабочий процесс', False),
         ('02', 'Идея и первые кадры', 'поиск своего стиля: от референса до готовой фотосессии', False),
-        ('03', 'Исправляем недочёты', 'Убираем артефакты, «пластиковую» кожу и другое. Кадр выглядит как настоящая фотография.', False),
-        ('04', 'Вся фотосессия целиком', 'Планируем съёмку по кадрам, меняем локации и образы, отбираем лучшее и собираем серию.', False),
-        ('05', 'Как монетизировать навык и получать заказы', 'Упаковываем навык в услугу', True)]
-rows = ''.join(f'<div style="display:flex;gap:30px;align-items:baseline;padding:26px 0;border-top:1px solid rgba(13,13,13,.22)"><div class="thin{" rd" if r else ""}" style="font-size:64px;width:110px;flex:none">{n}</div><div style="flex:1"><div style="font-size:31px;line-height:1.22{";color:#930400" if r else ""}">{t}</div>{f"<div style=\'font-size:21px;line-height:1.4;opacity:.7;margin-top:8px\'>{d}</div>" if d else ""}</div></div>' for n, t, d, r in mods)
+        ('03', 'Исправляем недочёты', 'убираем артефакты и «пластик»: как настоящая фотография', False),
+        ('04', 'Вся фотосессия целиком', 'планируем кадры, меняем локации и образы, собираем серию', False),
+        ('05', 'Как монетизировать навык и получать заказы', 'упаковываем навык в услугу и учимся находить заказы', True)]
+rows = ''.join(f'<div style="display:flex;gap:30px;align-items:baseline;padding:30px 0;border-top:1px solid rgba(13,13,13,.22)"><div class="thin{" rd" if r else ""}" data-opt="0" style="font-size:60px;width:70px;flex:none;text-align:right">{n}</div><div style="flex:1;min-width:0"><div style="font-size:27px;line-height:1.2;white-space:nowrap{";color:#930400" if r else ""}">{t}</div><div style="font-size:20px;line-height:1.4;opacity:.7;margin-top:8px;white-space:nowrap">{d}</div></div></div>' for n, t, d, r in mods)
 page(5, f'''{fit('5 модулей',620,170)}
     <div class="abs" style="left:86px;top:400px;width:908px">{rows}</div>''')
 # 6 — блок цвета + фото снизу (Pretend)
