@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Нейросети с нуля — 08</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="slide ">
+    <div class="abs" style="left:86px;top:200px;width:908px"><div class="fit" data-fit="640" style="line-height:1.02">Домашние<br>задания</div></div>
+    <div class="abs mrow" style="left:86px;top:470px;width:908px"><span class="br">[после уроков]</span><span>закрепляете навык на практике</span></div>
+    <div class="abs" style="left:86px;top:600px;width:908px">
+      <div class="row"><span class="n" style="width:120px">[урок]</span><span class="t">Видеоурок по теме модуля</span><span class="br">→</span></div>
+      <div class="row"><span class="n" style="width:120px">[дз]</span><span class="t">Домашнее задание после урока</span><span class="br">→</span></div>
+      <div class="row"><span class="n" style="width:120px">[разбор]</span><span class="t">Разбор работы на курсе</span><span class="br">✓</span></div>
+    </div>
+    <div class="abs" style="left:86px;top:1010px;width:760px;font-size:30px;line-height:1.4">После каждого урока вы делаете домашнее задание, и работа уходит на разбор.</div>
+    <div class="hd"><img src="../../assets/logo_black.png" alt="promptica"></div>
+    <div class="mt">курс «нейросети с нуля»<br>08 / 09</div>
+    <svg class="grain"><filter id="g"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="3" seed="8" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100%" height="100%" filter="url(#g)"/></svg>
+  </div>
+<script>
+Promise.all([document.fonts.load("100px 'HN Black Ext'"), document.fonts.load("20px 'Helios Ext'"), document.fonts.ready]).then(() => {
+  document.querySelectorAll('[data-fit]').forEach(el => { el.style.fontSize = '100px'; el.style.fontSize = (100 * parseFloat(el.dataset.fit) / el.getBoundingClientRect().width) + 'px'; });
+});
+</script>
+</body>
+</html>

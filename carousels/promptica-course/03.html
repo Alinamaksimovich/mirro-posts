@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Нейросети с нуля — 03</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="slide ">
+    <div class="ph" style="left:0px;top:170px;width:538px;height:640px"><div class="hn">фото куратора 1</div><img src="img/03-a.jpg" alt="" style="object-position:50% 25%" onerror="this.remove()"></div>
+    <div class="ph" style="left:542px;top:170px;width:538px;height:640px"><div class="hn">фото куратора 2</div><img src="img/03-b.jpg" alt="" style="object-position:50% 25%" onerror="this.remove()"></div>
+    <div class="abs lbl br" style="left:86px;top:862px">[куратор курса]</div>
+    <div class="abs name" style="left:86px;top:902px;font-size:130px">Аня</div>
+    <div class="abs" style="left:520px;top:880px;width:474px">
+      <div class="row" style="padding:16px 0;font-size:26px"><span class="t">8 лет в дизайне</span></div>
+      <div class="row" style="padding:16px 0;font-size:26px"><span class="t">ведущий креатор</span></div>
+      <div class="row ghost" style="padding:16px 0;font-size:26px"><span class="t">[ещё достижение]</span></div>
+    </div>
+    <div class="hd"><img src="../../assets/logo_black.png" alt="promptica"></div>
+    <div class="mt">курс «нейросети с нуля»<br>03 / 09</div>
+    <svg class="grain"><filter id="g"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="3" seed="3" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100%" height="100%" filter="url(#g)"/></svg>
+  </div>
+<script>
+Promise.all([document.fonts.load("100px 'HN Black Ext'"), document.fonts.load("20px 'Helios Ext'"), document.fonts.ready]).then(() => {
+  document.querySelectorAll('[data-fit]').forEach(el => { el.style.fontSize = '100px'; el.style.fontSize = (100 * parseFloat(el.dataset.fit) / el.getBoundingClientRect().width) + 'px'; });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Нейросети с нуля — 02</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="slide ">
+    <div class="abs" style="left:86px;top:200px;width:908px"><div class="fit" data-fit="908" style="line-height:.9">Видеоуроки</div></div>
+    <div class="abs mrow" style="left:86px;top:340px;width:908px"><span class="br">[формат]</span><span>по модулям</span><span>в своём темпе</span></div>
+    <div class="abs" style="left:86px;top:470px;width:908px">
+      <div class="row"><span class="n">[01]</span><span class="t">Видеоуроки, разбитые на модули<small>каждый модуль — отдельный блок со своей темой</small></span></div>
+      <div class="row"><span class="n">[02]</span><span class="t">Работайте в своём темпе<small>смотрите уроки тогда, когда удобно вам</small></span></div>
+      <div class="row"><span class="n">[03]</span><span class="t">Возвращайтесь к урокам<small>пересматривайте тему, если нужно закрепить</small></span></div>
+    </div>
+    <div class="hd"><img src="../../assets/logo_black.png" alt="promptica"></div>
+    <div class="mt">курс «нейросети с нуля»<br>02 / 09</div>
+    <svg class="grain"><filter id="g"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="3" seed="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100%" height="100%" filter="url(#g)"/></svg>
+  </div>
+<script>
+Promise.all([document.fonts.load("100px 'HN Black Ext'"), document.fonts.load("20px 'Helios Ext'"), document.fonts.ready]).then(() => {
+  document.querySelectorAll('[data-fit]').forEach(el => { el.style.fontSize = '100px'; el.style.fontSize = (100 * parseFloat(el.dataset.fit) / el.getBoundingClientRect().width) + 'px'; });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Нейросети с нуля — 05</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="slide ">
+    <div class="abs" style="left:86px;top:200px;width:908px"><div class="fit" data-fit="650" style="line-height:.9">2 месяца</div></div>
+    <div class="abs mrow" style="left:86px;top:340px;width:908px"><span class="br">[срок курса]</span><span>обратная связь на каждом этапе</span></div>
+    <div class="abs lbl br" style="left:86px;top:470px">[что входит]</div>
+    <div class="abs" style="left:86px;top:510px;width:908px">
+      <div class="row"><i class="cb" style="display:inline-block;margin-right:22px;vertical-align:middle"></i><span class="t">Разбор работ на курсе</span></div>
+      <div class="row"><i class="cb" style="display:inline-block;margin-right:22px;vertical-align:middle"></i><span class="t">Обратная связь от кураторов</span></div>
+      <div class="row"><i class="cb" style="display:inline-block;margin-right:22px;vertical-align:middle"></i><span class="t">Сборка портфолио</span></div>
+      <div class="row"><i class="cb" style="display:inline-block;margin-right:22px;vertical-align:middle"></i><span class="t">Финальный проект</span></div>
+      <div class="row ghost"><i class="cb" style="display:inline-block;margin-right:22px;vertical-align:middle"></i><span class="t">[ещё пункт]</span></div>
+    </div>
+    <div class="hd"><img src="../../assets/logo_black.png" alt="promptica"></div>
+    <div class="mt">курс «нейросети с нуля»<br>05 / 09</div>
+    <svg class="grain"><filter id="g"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="3" seed="5" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100%" height="100%" filter="url(#g)"/></svg>
+  </div>
+<script>
+Promise.all([document.fonts.load("100px 'HN Black Ext'"), document.fonts.load("20px 'Helios Ext'"), document.fonts.ready]).then(() => {
+  document.querySelectorAll('[data-fit]').forEach(el => { el.style.fontSize = '100px'; el.style.fontSize = (100 * parseFloat(el.dataset.fit) / el.getBoundingClientRect().width) + 'px'; });
+});
+</script>
+</body>
+</html>
