@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Почему нейросеть меняет продукт — 04</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="slide ">
+    <div class="photos"><div class="ph"><div class="hint">пример: продукт сливается с фоном</div><img src="img/04-a.jpg" alt="" onerror="this.remove()"></div></div>
+    <div class="scrim"></div>
+    <div class="prog"><span class="cb done"></span><span class="cb done"></span><span class="cb now"></span><span class="cb "></span><span class="cb "></span><span class="t">проверено 2 из 5</span></div>
+    <div class="box">
+      <div class="tag">причина 3 / 5</div>
+      <div class="title">Продукт плохо отделён<br>от фона</div>
+      <div class="p">Если края продукта сливаются с фоном, нейросеть не понимает, где кончается упаковка, и дорисовывает границу сама.</div>
+      <div class="chk"><span class="cb"></span><span class="t">Проверьте: контур чистый, контраст с фоном есть, на краях нет бликов.</span></div>
+    </div>
+    <div class="head"><img src="../../assets/logo_cream.png" alt="promptica"><div class="meta">чек-лист перед генерацией<br>04 / 07</div></div>
+    <svg class="grain"><filter id="g"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="3" seed="4" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100%" height="100%" filter="url(#g)"/></svg>
+  </div>
+</body>
+</html>
