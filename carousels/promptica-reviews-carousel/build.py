@@ -62,6 +62,20 @@ for i, c in enumerate(cases, start=1):
 {meta(i, c)}
     <div class="abs quote" data-box="230" data-max="40" style="left:86px;top:1064px;width:908px;height:230px;overflow:hidden">«{c['quote']}»</div>
     {head(n)}''')
+    elif L == 'video':
+        v = c['video']; st = ''.join(f'''<div style="padding:18px 0;border-top:1px solid rgba(13,13,13,.25)"><div style="font-family:'HN Black Ext',sans-serif;font-size:96px;line-height:.9;letter-spacing:-0.03em">{x['big']}</div><div class="lbl" style="margin-top:12px;opacity:.7">{x['label']}</div></div>''' for x in c.get('stats', []))
+        page(n, f'''    <div class="ph" style="left:0;top:170px;width:416px;height:740px"><div class="hn">видео ученика</div><img id="vid" src="img/{v['poster']}" alt="" style="object-position:50% 40%" onerror="this.remove()"></div>
+    <div class="abs lbl br" style="left:470px;top:176px">[{i:02d}] кейс</div>
+    <div class="abs name" style="left:470px;top:216px;width:524px;font-size:40px;line-height:1.05">{c['title']}</div>
+    <div class="abs" style="left:470px;top:332px;width:524px"><div class="br lbl" style="font-size:17px">[{c['name']}]</div><div class="res" style="margin-top:8px;opacity:.75">{c.get('note','')}</div></div>
+    <div class="abs" style="left:470px;top:470px;width:524px">{st}</div>
+    <div class="abs" style="left:86px;top:950px;width:908px"><img src="img/{c['chat']}" alt="" style="width:908px;display:block"></div>
+    {head(n)}
+    <script>
+    // покадровая подмена кадров видео (для render-video.js); в обычном экспорте остаётся постер
+    const FR = {v['frames']!r}, N = {v['count']}, FPS = {v['fps']}, vid = document.getElementById('vid');
+    window.setT = async function (t) {{ const k = Math.min(N, Math.floor(t * FPS + 1e-6) + 1); vid.src = 'img/' + FR + '/f' + String(k).padStart(4, '0') + '.jpg'; await vid.decode().catch(() => {{}}); }};
+    </script>''')
     else:  # quote
         page(n, f'''    <div class="abs" style="left:78px;top:250px;font-family:'HN Black Ext',sans-serif;font-size:300px;line-height:.8;color:var(--red)">“</div>
     <div class="abs quote" data-box="640" data-max="58" style="left:86px;top:480px;width:908px;height:640px;overflow:hidden">{c['quote']}</div>

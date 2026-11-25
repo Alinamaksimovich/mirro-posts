@@ -6,13 +6,20 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body data-size="1080x1440">
-  <div class="slide red">
-    <div class="abs" style="left:86px;top:300px;width:908px"><div class="fit" data-fit="908" style="color:var(--cream)">Хочешь<br>так же?</div></div>
-    <div class="abs mrow" style="left:86px;top:600px;width:908px;color:var(--cream)"><span>курс [нейросети с нуля]</span><span>запись открыта</span></div>
-    <div class="abs hair" style="left:86px;top:690px;width:908px;color:var(--cream)"></div>
-    <div class="abs" style="left:86px;top:730px;width:760px;font-size:34px;line-height:1.38;color:var(--cream)">Напиши слово «КУРС» в комментариях, и мы пришлём программу.</div>
-    <div class="hd"><img src="../../assets/logo_cream.png" alt="promptica"></div>
-    <div class="mt" style="color:#fff7e6">отзывы учеников<br>04 / 04</div>
+  <div class="slide ">
+    <div class="ph" style="left:0;top:170px;width:416px;height:740px"><div class="hn">видео ученика</div><img id="vid" src="img/04-poster.jpg" alt="" style="object-position:50% 40%" onerror="this.remove()"></div>
+    <div class="abs lbl br" style="left:470px;top:176px">[03] кейс</div>
+    <div class="abs name" style="left:470px;top:216px;width:524px;font-size:40px;line-height:1.05">Генерация<br>видео с ИИ</div>
+    <div class="abs" style="left:470px;top:332px;width:524px"><div class="br lbl" style="font-size:17px">[ученик Никита]</div><div class="res" style="margin-top:8px;opacity:.75">пришёл повторять вирусные рилсы</div></div>
+    <div class="abs" style="left:470px;top:470px;width:524px"><div style="padding:18px 0;border-top:1px solid rgba(13,13,13,.25)"><div style="font-family:'HN Black Ext',sans-serif;font-size:96px;line-height:.9;letter-spacing:-0.03em">5K</div><div class="lbl" style="margin-top:12px;opacity:.7">подписчиков за два месяца</div></div><div style="padding:18px 0;border-top:1px solid rgba(13,13,13,.25)"><div style="font-family:'HN Black Ext',sans-serif;font-size:96px;line-height:.9;letter-spacing:-0.03em">1</div><div class="lbl" style="margin-top:12px;opacity:.7">первый полноценный заказ</div></div></div>
+    <div class="abs" style="left:86px;top:950px;width:908px"><img src="img/04-chat.png" alt="" style="width:908px;display:block"></div>
+    <div class="hd"><img src="../../assets/logo_black.png" alt="promptica"></div>
+    <div class="mt">отзывы учеников<br>04 / 05</div>
+    <script>
+    // покадровая подмена кадров видео (для render-video.js); в обычном экспорте остаётся постер
+    const FR = '04-frames', N = 361, FPS = 24, vid = document.getElementById('vid');
+    window.setT = async function (t) { const k = Math.min(N, Math.floor(t * FPS + 1e-6) + 1); vid.src = 'img/' + FR + '/f' + String(k).padStart(4, '0') + '.jpg'; await vid.decode().catch(() => {}); };
+    </script>
     <svg class="grain"><filter id="g"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="3" seed="4" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100%" height="100%" filter="url(#g)"/></svg>
   </div>
 <script>
